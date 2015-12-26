@@ -1,0 +1,2 @@
+# Disable requiring headers and lists being surrounded by blank lines
+rules "~MD022", "~MD032"
