@@ -1,0 +1,49 @@
+[advice]
+    ; Don't show advice when running commands
+    commitBeforeMerge = false
+    detachedHead = false
+    pushNonFFCurrent = false
+    resolveConflict = false
+    statusHints = false
+[clean]
+    ; Allow clean to run without any flags
+    requireForce = false
+[color "diff"]
+    ; Custom diff colors
+    func = cyan bold
+    new = green bold
+    old = red bold
+[color "status"]
+    ; Custom status colors
+    added = green bold
+    changed = red bold
+    untracked = red bold
+[diff]
+    ; Show surrounding lines around changed lines in diffs
+    context = 2
+[fetch]
+    ; Delete references to deleted remote branches when fetching
+    prune = true
+[format]
+    ; Default pretty format. Use committer date to show the last time the
+    ; commit was updated (e.g. by rebasing), but use author name and email to
+    ; show the original author of the commit.
+    pretty = %Cred%h |%C(bold yellow)%d %Creset%s %Cgreen(%cd) %C(bold blue)[%an] %C(white dim)<%ae>
+[log]
+    ; Use short dates for log
+    date = short
+[pull]
+    ; Perform a rebase when pulling
+    rebase = true
+[push]
+    ; Only push the current branch if no refspec is specified
+	default = simple
+[status]
+    ; Show absolute project paths of files
+    relativePaths = false
+    ; Show individual files in untracked directories
+    showUntrackedFiles = all
+[user]
+    ; User information
+    email = gnawrice@gmail.com
+    name = Eric Wang
