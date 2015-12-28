@@ -1,0 +1,20 @@
+# Vi mode
+set editing-mode vi
+
+# Show editing mode in prompt
+set show-mode-in-prompt on
+
+# Case-insensitive completion
+set completion-ignore-case on
+
+# List completions immediately
+set show-all-if-ambiguous on
+
+# Don't show hidden files in completions unless input starts with a period
+set match-hidden-files off
+
+# Use dircolors in completions
+set colored-stats on
+
+# Append character denoting filetype (e.g. "@" for symlinks) to completions
+set visible-stats on
