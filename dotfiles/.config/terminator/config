@@ -1,0 +1,112 @@
+[global_config]
+  enabled_plugins = ,
+  handle_size = 0
+  inactive_color_offset = 0.4
+  tab_position = hidden
+[keybindings]
+  close_term = <Alt>w
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  go_up = <Alt>k
+  hide_window = <Alt>space
+  new_tab = <Alt>t
+  next_tab = <Alt>n
+  prev_tab = <Alt>p
+  split_horiz = <Alt>s
+  split_vert = <Alt>v
+[profiles]
+  [[default]]
+    background_darkness = 0.75
+    background_image = None
+    background_type = transparent
+    cursor_blink = False
+    font = Ubuntu Mono 10
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child0]]]
+      position = 0:20
+      type = Window
+      order = 0
+      parent = ""
+      size = 1920, 1060
+    [[[child1]]]
+      labels = None, None
+      type = Notebook
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 530
+      type = VPaned
+      order = 0
+      parent = child1
+    [[[child3]]]
+      position = 960
+      type = HPaned
+      order = 0
+      parent = child2
+    [[[child6]]]
+      position = 960
+      type = HPaned
+      order = 1
+      parent = child2
+    [[[child13]]]
+      position = 960
+      type = HPaned
+      order = 1
+      parent = child9
+    [[[child9]]]
+      position = 530
+      type = VPaned
+      order = 1
+      parent = child1
+    [[[child10]]]
+      position = 960
+      type = HPaned
+      order = 0
+      parent = child9
+    [[[terminal11]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child10
+    [[[terminal12]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child10
+    [[[terminal5]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child3
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child3
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child6
+    [[[terminal15]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child13
+    [[[terminal8]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child6
+    [[[terminal14]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child13
+[plugins]
