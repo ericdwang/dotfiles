@@ -38,6 +38,9 @@
 [push]
     ; Only push the current branch if no refspec is specified
 	default = simple
+[stash]
+    ; Display full diffs instead of summary when running stash show
+    showPatch = true
 [status]
     ; Show absolute project paths of files
     relativePaths = false
