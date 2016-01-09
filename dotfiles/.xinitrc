@@ -24,5 +24,8 @@ export $(gnome-keyring-daemon -s)
 # Automount removable media
 devmon &
 
+# Set wallpaper
+sh ~/.fehbg
+
 # Launch i3
 exec dbus-launch --exit-with-session i3
