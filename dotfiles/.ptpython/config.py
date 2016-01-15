@@ -5,6 +5,9 @@ def configure(repl):
     # Disable autocompletion while typing
     repl.complete_while_typing = False
 
+    # Don't ask for confirmation on exit
+    repl.confirm_exit = False
+
     # Show autosuggestions
     repl.enable_auto_suggest = True
 
