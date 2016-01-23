@@ -69,6 +69,7 @@ alias ar="aptitude remove"
 alias pi="pip install"
 alias pu="pip uninstall"
 alias py="ptipython"
+source /usr/local/bin/virtualenvwrapper.sh  # Virtual environment management
 
 # Git abbreviated commands
 alias ga="git add"
