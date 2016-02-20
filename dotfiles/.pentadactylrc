@@ -39,5 +39,9 @@ imap -b <C-v> <C-v><C-v>
 imap -b <C-a> <C-v><C-a>
 imap -b <C-S-v> <C-v><C-S-v>
 
+" Extended hints
+nmap -b v ;;
+nmap -b c ;c
+
 " Use insert mode for Google Docs
 autocmd LocationChange docs\.google\.com :normal gi
