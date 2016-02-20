@@ -7,6 +7,11 @@ from i3pystatus import Status
 from i3pystatus.updates.aptget import AptGet
 
 
+# Hex color codes
+GRAY = '#909090'
+GREEN = '#00FF00'
+WHITE = '#FFFFFF'
+
 status = Status(standalone=True)
 
 
@@ -39,7 +44,7 @@ register(
 register(
     'temp',
     format='{temp:.0f}°C',
-    color='#00FF00',
+    color=GREEN,
     file='/sys/class/thermal/thermal_zone1/temp',
     alert_temp=55,
 )
@@ -54,7 +59,9 @@ register(
     'updates',
     format='🔃 {count}',
     format_no_updates='🔃 0',
-    color_no_updates='#909090',
+    format_working='🔃 Updating',
+    color_no_updates=GRAY,
+    color_working=WHITE,
     backends=AptGet(),
 )
 
@@ -62,7 +69,7 @@ register(
     'pulseaudio',
     format='🔉 {volume}%',
     multi_colors=True,
-    color_muted='#909090',
+    color_muted=GRAY,
 )
 
 register(
@@ -82,6 +89,9 @@ register(
 register(
     'cmus',
     format='{status} {song_elapsed}/{song_length} {title} ({album})',
+    format_not_running='⏯',
+    color=GRAY,
+    color_not_running=GRAY,
 )
 
 status.run()
