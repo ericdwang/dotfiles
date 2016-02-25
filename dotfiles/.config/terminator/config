@@ -10,6 +10,7 @@
   go_right = <Alt>l
   go_up = <Alt>k
   hide_window = <Alt>space
+  layout_launcher = <Shift><Alt>l
   new_tab = <Alt>t
   next_tab = <Alt>n
   prev_tab = <Alt>p

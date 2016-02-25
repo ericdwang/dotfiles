@@ -37,7 +37,7 @@
     rebase = true
 [push]
     ; Only push the current branch if no refspec is specified
-	default = simple
+    default = simple
 [stash]
     ; Display full diffs instead of summary when running stash show
     showPatch = true
