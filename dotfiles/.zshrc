@@ -3,7 +3,7 @@ source ~/.zplug/zplug
 zplug "themes/sunrise", from:oh-my-zsh  # Theme
 zplug "zsh-users/zsh-syntax-highlighting"  # Syntax highlighting
 zplug "zsh-users/zsh-history-substring-search"  # Search history based on input
-zplug "hchbaw/opp.zsh", if:"! is-at-least 5.0.8"  # Improved Vim text objects
+zplug "tarruda/zsh-autosuggestions"  # Autosuggestions
 
 # Install plugins if there are ones that haven't been installed
 if ! zplug check; then
