@@ -9,6 +9,9 @@ xset s off
 xset -dpms
 xset s noblank
 
+# Disable speaker beeps
+xset -b
+
 # Disable tap to click
 synclient MaxTapTime=0
 
@@ -17,6 +20,9 @@ syndaemon -i 1 -tkd
 
 # Credential manager
 export $(gnome-keyring-daemon -s)
+
+# Python packages
+export PATH="$PATH:$HOME/.local/bin"
 
 # Set wallpaper
 sh ~/.fehbg
