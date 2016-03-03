@@ -4,7 +4,8 @@ import logging
 import os
 
 from i3pystatus import Status
-from i3pystatus.updates.aptget import AptGet
+from i3pystatus.updates.cower import Cower
+from i3pystatus.updates.pacman import Pacman
 
 
 # Hex color codes
@@ -38,7 +39,7 @@ register(
     'network',
     format_up='📶 {essid} ({quality:.0f}%)',
     dynamic_color=True,
-    interface='wlan0',
+    interface='wlp4s0',
 )
 
 register(
@@ -57,12 +58,12 @@ register(
 
 register(
     'updates',
-    format='🔃 {count}',
-    format_no_updates='🔃 0',
+    format='🔃 {Pacman},{Cower}',
+    format_no_updates='🔃 0,0',
     format_working='🔃 Updating',
     color_no_updates=GRAY,
     color_working=WHITE,
-    backends=AptGet(),
+    backends=[Pacman(), Cower()],
 )
 
 register(

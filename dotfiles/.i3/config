@@ -7,8 +7,9 @@ font pango: Ubuntu Mono 9
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# Start dmenu
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu Mono-11'"
+# Menu commands
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu Mono-10'"
+bindsym $mod+p exec --no-startup-id passmenu -i -fn 'Ubuntu Mono-10'
 
 # Change focus
 bindsym $mod+h focus left
@@ -71,7 +72,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -b 'Yes' 'i3-msg exit
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -- -10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -10%
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 
 # Screen brightness controls

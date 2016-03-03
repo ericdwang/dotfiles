@@ -58,18 +58,15 @@ o() { xdg-open "$1" > /dev/null 2>&1 &; }  # Open file with the default program
 p() { pass "$@" -c; }  # Copy passwords to clipboard
 compdef p=pass
 
-# Apt commands
-alias aa="add-apt-repository"
-alias ad="aptitude update"
-alias ai="aptitude install"
-alias ap="aptitude upgrade"
-alias ar="aptitude remove"
+# Pacaur commands
+alias pi="pacaur -S --noedit"
+alias pu="pacaur -Syu"
+alias pr="pacaur -Rs"
+alias pss="pacaur -Ss"
 
 # Python commands
-alias pi="pip install"
-alias pu="pip uninstall"
-alias py="ptipython"
-source /usr/local/bin/virtualenvwrapper.sh  # Virtual environment management
+alias py="ptpython"
+source /usr/bin/virtualenvwrapper.sh  # Virtual environment management
 
 # Git abbreviated commands
 alias ga="git add"
