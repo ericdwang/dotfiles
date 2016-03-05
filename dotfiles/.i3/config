@@ -8,8 +8,8 @@ font pango: Ubuntu Mono 9
 bindsym $mod+Shift+q kill
 
 # Menu commands
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu Mono-10'"
-bindsym $mod+p exec --no-startup-id passmenu -i -fn 'Ubuntu Mono-10'
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="rofi -dmenu -fuzzy"
+bindsym $mod+p exec --no-startup-id rofi-pass
 
 # Change focus
 bindsym $mod+h focus left
