@@ -1,0 +1,24 @@
+[global]
+    allow_markup = yes
+    font = Monospace 11
+    format = "<b>%s</b>\n%b"
+    geometry = "400x5-20+60"
+    horizontal_padding = 10
+    padding = 10
+    transparency = 20
+    word_wrap = yes
+
+[urgency_low]
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 5
+
+[urgency_normal]
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout = 5
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    timeout = 0
