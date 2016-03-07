@@ -1,12 +1,9 @@
 #!/bin/sh
 
-sh ~/.xprofile
+source ~/.xprofile
 
 # Better font rendering
-xrdb -merge ~/.Xresources
-
-# Automount removable media
-devmon &
+xrdb ~/.Xresources
 
 # Launch i3
 exec dbus-launch --exit-with-session i3
