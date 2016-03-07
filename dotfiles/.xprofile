@@ -18,9 +18,6 @@ synclient MaxTapTime=0
 # Disable touchpad for one second after typing
 syndaemon -i 1 -tkd
 
-# Credential manager
-export $(gnome-keyring-daemon -s)
-
 # Python packages
 export PATH="$PATH:$HOME/.local/bin"
 

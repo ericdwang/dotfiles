@@ -49,6 +49,7 @@ bindkey "^n" history-substring-search-down
 alias ag="ag -A 2 -B 2"  # Show lines surrounding matches
 alias du="du -sh"  # Display total directory sizes in a human readable format
 alias ls="ls -v --color=auto --hide='*.pyc'"  # Natural sort, hide filetypes
+alias startx="ssh-agent startx"  # Start/stop ssh-agent along with X
 alias sudo="sudo "  # Allow sudo to work with aliases
 cd() { builtin cd "$@" && ls; }  # Show files after changing directories
 
@@ -57,6 +58,7 @@ alias untar="tar -xvf"
 o() { xdg-open "$1" > /dev/null 2>&1 &; }  # Open file with the default program
 p() { pass "$@" -c; }  # Copy passwords to clipboard
 compdef p=pass
+sa() { ssh-add ~/.ssh/$1 }  # Unlock SSH keys
 
 # Pacaur commands
 alias pi="pacaur -S --noedit"
