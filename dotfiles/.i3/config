@@ -103,8 +103,5 @@ for_window [class="Gcr-prompter"] floating enable
 for_window [class="Screenkey"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
 
-# Start Redshift with icon
-exec --no-startup-id redshift-gtk
-
 # Use Compton for transparent windows and inactive window dimming
 exec --no-startup-id compton -b
