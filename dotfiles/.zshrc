@@ -1,3 +1,5 @@
+export DISABLE_AUTO_UPDATE=true  # Disable Oh My Zsh update prompts
+
 source ~/.zplug/zplug
 
 zplug "themes/sunrise", from:oh-my-zsh  # Theme
@@ -45,6 +47,24 @@ bindkey -M vicmd "j" history-substring-search-down
 bindkey "^p" history-substring-search-up
 bindkey "^n" history-substring-search-down
 
+# Enable text objects for quotes
+autoload -U select-quoted
+zle -N select-quoted
+for m in visual viopp; do
+    for c in {a,i}{\',\",\`}; do
+        bindkey -M $m $c select-quoted
+    done
+done
+
+# Enable text objects for surroundings
+autoload -U select-bracketed
+zle -N select-bracketed
+for m in visual viopp; do
+    for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+        bindkey -M $m $c select-bracketed
+    done
+done
+
 # More useful versions of commands
 alias ag="ag -A 2 -B 2"  # Show lines surrounding matches
 alias du="du -sh"  # Display total directory sizes in a human readable format
@@ -62,7 +82,7 @@ sa() { ssh-add ~/.ssh/$1 }  # Unlock SSH keys
 
 # Pacaur commands
 alias pi="pacaur -S --noedit"
-alias pu="pacaur -Syu"
+alias pu="pacaur -Syu --noedit"
 alias pr="pacaur -Rs"
 alias pss="pacaur -Ss"
 
