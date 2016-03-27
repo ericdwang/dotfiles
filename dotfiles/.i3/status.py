@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 from i3pystatus import Status
 from i3pystatus.updates.cower import Cower
 from i3pystatus.updates.pacman import Pacman
@@ -51,16 +49,6 @@ status.register(
 )
 
 status.register(
-    'updates',
-    format='🔃 {Pacman},{Cower}',
-    format_no_updates='🔃 0,0',
-    format_working='🔃 Updating',
-    color_no_updates=GRAY,
-    color_working=WHITE,
-    backends=[Pacman(), Cower()],
-)
-
-status.register(
     'pulseaudio',
     format='🔉 {volume}%',
     multi_colors=True,
@@ -74,11 +62,13 @@ status.register(
 )
 
 status.register(
-    'weather',
-    location_code=os.environ['I3_LOCATION_CODE'],
-    units='imperial',
-    colorize=True,
-    interval=60 * 5,
+    'updates',
+    format='🔃 {Pacman},{Cower}',
+    format_no_updates='🔃 0,0',
+    format_working='🔃 Updating',
+    color_no_updates=GRAY,
+    color_working=WHITE,
+    backends=[Pacman(), Cower()],
 )
 
 status.register(
