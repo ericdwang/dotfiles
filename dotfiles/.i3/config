@@ -1,74 +1,74 @@
-# Set mod to Super key
-set $mod Mod4
-
 # Font
 font pango: Ubuntu Mono 9
 
-# Kill focused window
-bindsym $mod+Shift+q kill
+# Start i3bar at the top
+bar {
+    status_command python3 ~/.i3/status.py
+    position top
+}
+
+# Hide the window bars
+new_window none
+new_float none
+
+# Don't focus on a window by hovering the mouse over it
+focus_follows_mouse no
+
+# Use Compton for compositing
+exec --no-startup-id compton -b
+
+# Allow terminal to be floating and on all workspaces
+for_window [class="Terminator"] floating enable sticky enable
+
+# Use Super key as main modifier
+set $m Mod4
 
 # Menu commands
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="rofi -dmenu -fuzzy"
-bindsym $mod+p exec --no-startup-id rofi-pass
+bindsym $m+d exec --no-startup-id i3-dmenu-desktop --dmenu="rofi -dmenu -fuzzy"
+bindsym $m+p exec --no-startup-id rofi-pass
 
 # Change focus
-bindsym $mod+h focus left
-bindsym $mod+l focus right
+bindsym $m+h focus left
+bindsym $m+l focus right
 
-# Split in horizontal orientation
-bindsym $mod+s split h
-
-# Split in vertical orientation
-bindsym $mod+v split v
-
-# Enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
-
-# Toggle floating mode and show borders
-bindsym $mod+t floating toggle, border normal
+# Move focused window
+bindsym $m+Shift+h move left
+bindsym $m+Shift+l move right
 
 # Switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $m+1 workspace 1
+bindsym $m+2 workspace 2
+bindsym $m+3 workspace 3
+bindsym $m+4 workspace 4
+
+# Switch to adjacent workspace
+bindsym $m+j workspace prev
+bindsym $m+k workspace next
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $m+Shift+1 move container to workspace 1
+bindsym $m+Shift+2 move container to workspace 2
+bindsym $m+Shift+3 move container to workspace 3
+bindsym $m+Shift+4 move container to workspace 4
 
-# Switch to adjacent workspaces
-bindsym $mod+j workspace prev
-bindsym $mod+k workspace next
-bindsym $mod+Shift+j move container to workspace prev
-bindsym $mod+Shift+k move container to workspace next
+# Move focused container to adjacent workspace
+bindsym $m+Shift+j move container to workspace prev
+bindsym $m+Shift+k move container to workspace next
 
-# Move focused container to adjacent workspaces
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+l move right
+# Enter fullscreen mode for the focused container
+bindsym $m+f fullscreen
 
-# Reload the configuration file
-bindsym $mod+Shift+c reload
+# Toggle floating mode for the focused window and show borders
+bindsym $m+t floating toggle, border normal
+
+# Kill focused window
+bindsym $m+Shift+q kill
 
 # Restart i3 in-place
-bindsym $mod+Shift+r restart
+bindsym $m+Shift+r restart
 
 # Exit i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -b 'Yes' 'i3-msg exit'"
+bindsym $m+Shift+e exit
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10%
@@ -82,26 +82,3 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 # Screenshot controls
 bindsym --release Print exec gnome-screenshot -i
 bindsym --release Shift+Print exec gnome-screenshot -a -i
-
-# Start i3bar with i3pystatus
-bar {
-    status_command python3 ~/.i3/status.py
-    position top
-    workspace_buttons yes
-}
-
-# Hide the window bars
-new_window none
-new_float none
-
-# Don't focus on a window by house hover
-focus_follows_mouse no
-
-# Allow certain classes of windows to be floating
-for_window [class="Terminator"] floating enable sticky enable
-for_window [class="Gcr-prompter"] floating enable
-for_window [class="Screenkey"] floating enable
-for_window [class="Gnome-screenshot"] floating enable
-
-# Use Compton for transparent windows and inactive window dimming
-exec --no-startup-id compton -b
