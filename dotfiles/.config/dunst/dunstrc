@@ -9,8 +9,8 @@
     word_wrap = yes
 
 [urgency_low]
-    background = "#222222"
-    foreground = "#888888"
+    background = "#285577"
+    foreground = "#ffffff"
     timeout = 5
 
 [urgency_normal]
