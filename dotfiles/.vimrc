@@ -52,6 +52,7 @@ augroup END
 colorscheme molokai
 highlight IncSearch ctermfg=118 guifg=#87ff00
 highlight Normal ctermbg=none  " Use terminal background
+highlight Visual ctermbg=238  " Visual selection background
 highlight SpellBad cterm=underline ctermfg=red ctermbg=none
 highlight SpellLocal cterm=underline ctermfg=blue ctermbg=none
 
