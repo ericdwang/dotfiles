@@ -43,5 +43,9 @@ imap -b <C-S-v> <C-v><C-S-v>
 nmap -b v ;;
 nmap -b c ;c
 
+" Disable viewing source
+nmap -b gf <nop>
+nmap -b gF <nop>
+
 " Use insert mode for Google Docs
 autocmd LocationChange docs\.google\.com :normal gi
