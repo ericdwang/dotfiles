@@ -1,8 +1,6 @@
-export DISABLE_AUTO_UPDATE=true  # Disable Oh My Zsh update prompts
-
 source ~/.zplug/zplug
 
-zplug "themes/sunrise", from:oh-my-zsh  # Theme
+zplug "ericdwang/zsh-lightrise"  # Theme
 zplug "zsh-users/zsh-syntax-highlighting"  # Syntax highlighting
 zplug "zsh-users/zsh-history-substring-search"  # Search history based on input
 zplug "tarruda/zsh-autosuggestions"  # Autosuggestions
@@ -17,13 +15,33 @@ zplug load
 # Configuration
 eval "$(dircolors ~/.dircolors)"  # Setup dircolors (used in ls)
 export EDITOR=vim  # Default editor
-export KEYTIMEOUT=1  # 0.01s delay for key sequences (remove escape key delay)
+export LESS="-R"  # Repaint the screen after exiting less
 export TERM=xterm-256color  # Allow 256 color support in terminal programs
-set -o vi  # Vi mode
+
+# Entering commands
+bindkey -v  # Vi mode
+export KEYTIMEOUT=1  # 0.01s delay for key sequences (remove escape key delay)
+setopt INTERACTIVE_COMMENTS  # Allow comments in commands
+
+# History
+HISTFILE=~/.zsh_history  # File to use for saving history
+HISTSIZE=1000  # Number of commands that a session stores in history
+SAVEHIST=$HISTSIZE  # Number of commands saved at the end of a session
+setopt HIST_IGNORE_ALL_DUPS  # Remove old duplicate commands from history
+setopt HIST_IGNORE_SPACE  # Remove commands with leading space from history
+
+# Completions
+setopt MENU_COMPLETE  # Select first completion on initial tab
+zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"  # Use dircolors
+zstyle ":completion:*" menu "select"  # Change background of current selection
+zstyle ":completion:*" use-cache 1  # Use cache
+zstyle ":completion:*" users  # Don't show user folders
+# Case-insensitive and partial completion
+zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "+l:|=* r:|=*"
 
 # Keybindings
 bindkey "^?" backward-delete-char  # Allow backspace to work in insert mode
-bindkey -M menuselect "^[[Z" reverse-menu-complete  # Shift-tab completion
+bindkey "^[[Z" reverse-menu-complete  # Shift-tab completion
 bindkey -M vicmd "/" history-incremental-search-backward  # Normal mode search
 bindkey -M vicmd "^r" redo  # Multi-level redo
 bindkey -M vicmd "u" undo  # Multi-level undo
@@ -52,7 +70,7 @@ autoload -U select-quoted
 zle -N select-quoted
 for m in visual viopp; do
     for c in {a,i}{\',\",\`}; do
-        bindkey -M $m $c select-quoted
+        bindkey -M "$m" "$c" select-quoted
     done
 done
 
@@ -61,7 +79,7 @@ autoload -U select-bracketed
 zle -N select-bracketed
 for m in visual viopp; do
     for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-        bindkey -M $m $c select-bracketed
+        bindkey -M "$m" "$c" select-bracketed
     done
 done
 
@@ -78,7 +96,7 @@ alias untar="tar -xvf"
 o() { xdg-open "$1" > /dev/null 2>&1 &; }  # Open file with the default program
 p() { pass "$@" -c; }  # Copy passwords to clipboard
 compdef p=pass
-sa() { ssh-add ~/.ssh/$1 }  # Unlock SSH keys
+sa() { ssh-add ~/.ssh/"$1"; }  # Unlock SSH keys
 
 # Pacaur commands
 alias pi="pacaur -S --noedit"
