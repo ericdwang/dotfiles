@@ -31,7 +31,6 @@ setopt HIST_IGNORE_ALL_DUPS  # Remove old duplicate commands from history
 setopt HIST_IGNORE_SPACE  # Remove commands with leading space from history
 
 # Completions
-setopt MENU_COMPLETE  # Select first completion on initial tab
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"  # Use dircolors
 zstyle ":completion:*" menu "select"  # Change background of current selection
 zstyle ":completion:*" use-cache 1  # Use cache
