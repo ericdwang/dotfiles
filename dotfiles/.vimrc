@@ -80,9 +80,12 @@ set expandtab shiftwidth=0 softtabstop=-1  " Shift, add/delete spaces, not tabs
 set tabstop=4  " Number of spaces that a tab counts for
 
 " Formatting
-set formatoptions=cqj  " Comments: auto-wrap, remove leader with join or 'gq'
 set nojoinspaces  " Don't insert 2 spaces after punctuation when joining lines
 set textwidth=79  " Maximum width to break lines (specified by formatoptions)
+
+" Comment formatting: auto-wrap, remove leader with join or 'gq'
+set formatoptions=cqj
+autocmd rc FileType * setlocal formatoptions=cqj  " Override filetype plugins
 
 " Searching
 set ignorecase smartcase  " Case insensitive if lowercase, sensitive otherwise
@@ -160,9 +163,6 @@ let g:pasta_disabled_filetypes = []  " Enable for all filetypes
 
 " Syntastic
 let g:syntastic_vim_checkers = ['vint']
-
-" GitGutter
-let g:gitgutter_eager = 0  " Disable showing changes after refocusing on buffer
 
 " CtrlP
 let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}  " Use a faster matcher
