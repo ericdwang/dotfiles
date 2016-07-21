@@ -130,7 +130,7 @@ command! D bprevious | bdelete #  " Delete the buffer without closing the split
 command! Da bufdo bdelete  " Delete all buffers
 
 " Trailing whitespace
-match SpellBad '\s\+$'  " Highlight all trailing whitespace
+autocmd rc BufEnter * match SpellBad '\s\+$'  " Highlight trailing whitespace
 command! DeleteTrailing %s/\s\+$//e  " Delete all trailing whitespace
 
 " Buftabline
