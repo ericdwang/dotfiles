@@ -111,7 +111,7 @@ set directory=~/.vim/swap  " Keep swap files out of current directory
 
 " Filetype specific configuration
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango  " Django HTML syntax
-autocmd rc FileType htmldjango,javascript setlocal tabstop=2  " Custom tabstop
+autocmd rc FileType css,htmldjango,javascript,json setlocal tabstop=2
 
 " Disable Ex mode
 nnoremap Q <nop>
@@ -162,6 +162,8 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']  " Only highlight on f/t
 let g:pasta_disabled_filetypes = []  " Enable for all filetypes
 
 " Syntastic
+let g:syntastic_python_checkers = ['python', 'flake8']
+let g:syntastic_sh_checkers = ['sh', 'shellcheck']
 let g:syntastic_vim_checkers = ['vint']
 
 " CtrlP
