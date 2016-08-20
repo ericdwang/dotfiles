@@ -24,8 +24,8 @@ for_window [class="Terminator"] floating enable sticky enable
 set $m Mod4
 
 # Menu commands
-bindsym $m+d exec --no-startup-id i3-dmenu-desktop --dmenu="rofi -dmenu -fuzzy"
-bindsym $m+p exec --no-startup-id rofi-pass
+bindsym $m+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -z -fn 'Ubuntu Mono-10'"
+bindsym $m+p exec --no-startup-id passmenu -i -z -fn 'Ubuntu Mono-10'
 
 # Change focus
 bindsym $m+h focus left
