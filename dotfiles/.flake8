@@ -1,0 +1,3 @@
+[flake8]
+ignore = T003
+import-order-style = smarkets
