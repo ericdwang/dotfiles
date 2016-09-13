@@ -1,13 +1,8 @@
 #!/bin/bash
 
-dotfiles_dir="$(pwd)/$(dirname "$0")/dotfiles"
+GITHUB_URL="https://github.com"
 
-download() {
-    if [[ ! -f $3 ]]; then
-        curl -LSs "https://github.com/$1/raw/master/$2" -o "$3" --create-dirs 
-        echo "Downloaded $3"
-    fi
-}
+dotfiles_dir="$(pwd)/$(dirname "$0")/dotfiles"
 
 find "$dotfiles_dir" -type f -printf "%P\n" | while read -r file; do
     mkdir -p ~/"$(dirname "$file")"
@@ -17,6 +12,20 @@ find "$dotfiles_dir" -type f -printf "%P\n" | while read -r file; do
     fi
 done
 
-download b4b4r07/zplug zplug ~/.zplug/zplug
+download() {
+    if [[ $# == 2 ]]; then
+        if [[ ! -d $2 ]]; then
+            git clone -q "$GITHUB_URL/$1" "$2"
+            echo "Downloaded $2"
+        fi
+    else
+        if [[ ! -f $3 ]]; then
+            curl -LSs "$GITHUB_URL/$1/raw/master/$2" -o "$3" --create-dirs
+            echo "Downloaded $3"
+        fi
+    fi
+}
+
+download b4b4r07/zplug ~/.zplug
 download junegunn/vim-plug plug.vim ~/.vim/autoload/plug.vim
 download seebi/dircolors-solarized dircolors.ansi-universal ~/.dircolors

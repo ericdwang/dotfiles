@@ -1,5 +1,6 @@
-source ~/.zplug/zplug
+source ~/.zplug/init.zsh
 
+zplug "zplug/zplug"  # Plugin manager
 zplug "ericdwang/zsh-lightrise"  # Theme
 zplug "zsh-users/zsh-syntax-highlighting"  # Syntax highlighting
 zplug "zsh-users/zsh-history-substring-search"  # Search history based on input
