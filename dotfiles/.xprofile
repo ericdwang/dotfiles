@@ -23,6 +23,3 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # Set wallpaper
 sh ~/.fehbg
-
-# Start Redshift with icon
-redshift-gtk &
