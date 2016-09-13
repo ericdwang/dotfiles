@@ -20,6 +20,11 @@ exec --no-startup-id compton -b
 # Allow terminal to be floating and on all workspaces
 for_window [class="Terminator"] floating enable sticky enable
 
+# Assign programs to specific workspaces when starting them
+assign [class="Firefox"] 1
+assign [class="Gvim"] 2
+assign [class="chromium"] 3
+
 # Use Super key as main modifier
 set $m Mod4
 
