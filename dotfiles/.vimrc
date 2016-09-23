@@ -1,5 +1,5 @@
 " Load plugins with multi-threading
-let g:plug_threads = 26
+let g:plug_threads = 25
 call plug#begin('~/.vim/plugged')
 
 " Display
@@ -9,7 +9,7 @@ Plug 'nathanaelkane/vim-indent-guides'  " Indent guides
 Plug 'tomasr/molokai'  " Dark and colorful colorscheme
 
 " Visual aids for builtin features
-Plug 'junegunn/vim-pseudocl' | Plug 'junegunn/vim-oblique'  " Search
+Plug 'pgdouyon/vim-evanesco'  " Improved search highlighting
 Plug 'kana/vim-operator-user' | Plug 'haya14busa/vim-operator-flashy'  " Yank
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}  " Undotree
 Plug 'unblevable/quick-scope'  " f/t targets
