@@ -4,6 +4,12 @@ set hintkeys='fjdkslaghrueiwovncm'
 " Show the status bar and tab numbers
 set guioptions=ns
 
+" Use search engines and bookmarks for :open completions
+set complete=search,bookmark
+
+" Maximum number of items to display
+set maxitems=15
+
 " Disable command line history
 set history=0
 
