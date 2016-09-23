@@ -48,4 +48,4 @@ nmap -b gf <nop>
 nmap -b gF <nop>
 
 " Use insert mode for Google Docs
-autocmd LocationChange docs\.google\.com :normal gi
+autocmd LocationChange docs\.google\.com/document :normal gi
