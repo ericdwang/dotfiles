@@ -1,0 +1,3 @@
+#env
+LESS = -MRi -x 4  # Long prompt, ANSI colors, smart case search, 4 space tabs
+LESSHISTFILE = /dev/null  # Disable history

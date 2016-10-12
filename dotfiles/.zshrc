@@ -16,7 +16,6 @@ zplug load
 # Configuration
 eval "$(dircolors ~/.dircolors)"  # Setup dircolors (used in ls)
 export EDITOR=vim  # Default editor
-export LESS="-R"  # Repaint the screen after exiting less
 export TERM=xterm-256color  # Allow 256 color support in terminal programs
 PROMPT_EOL_MARK=''  # Don't show character for partial lines
 
