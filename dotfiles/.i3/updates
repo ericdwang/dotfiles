@@ -1,0 +1,12 @@
+#!/bin/bash
+
+pacman=$(checkupdates | wc -l)
+cower=$(cower -u | wc -l)
+
+echo -e "$pacman,$cower\n"
+
+if [ "$pacman" -gt 0 ] || [ "$cower" -gt 0 ]; then
+    echo "#00FF00"
+else
+    echo "#909090"
+fi

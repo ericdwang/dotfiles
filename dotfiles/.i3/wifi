@@ -1,0 +1,13 @@
+#!/bin/bash
+
+ssid=$(iwgetid -r)
+
+if [ "$ssid" ]; then
+    quality=$(iwconfig "$BLOCK_INSTANCE" | grep -oE "[0-9]+/[0-9]+" | \
+        awk -F / "{ print int(\$1 / \$2 * 100) }")
+    echo -e "$ssid ($quality%)\n"
+    echo "#00FF00"
+else
+    echo -e "$BLOCK_INSTANCE: DOWN\n"
+    echo "#FF0000"
+fi

@@ -3,7 +3,7 @@ font pango: Ubuntu Mono 9
 
 # Start i3bar at the top
 bar {
-    status_command python3 ~/.i3/status.py
+    status_command i3blocks
     position top
 }
 
@@ -29,7 +29,8 @@ assign [class="chromium"] 3
 set $m Mod4
 
 # Menu commands
-bindsym $m+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -z -fn 'Ubuntu Mono-10'"
+bindsym $m+d exec --no-startup-id i3-dmenu-desktop \
+    --dmenu="dmenu -i -z -fn 'Ubuntu Mono-10'"
 bindsym $m+p exec --no-startup-id passmenu -i -z -fn 'Ubuntu Mono-10'
 
 # Change focus

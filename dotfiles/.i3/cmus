@@ -1,0 +1,52 @@
+#!/bin/bash
+
+format_time() {
+    printf %d:%02d $(($1 / 60)) $(($1 % 60))
+}
+
+get_value() {
+    echo "$1" | cut -d " " -f "$2"
+}
+
+output=$(cmus-remote -Q)
+first_line=$(echo "$output" | head -n 1)
+
+case $(get_value "$first_line" 2) in
+    paused)
+        status=▷
+        ;;
+    playing)
+        status=▶
+        ;;
+esac
+
+if [ ! "$status" ]; then
+    echo "⏯"
+    exit
+fi
+
+while read -r line; do
+    field=$(get_value "$line" 1)
+    value=$(get_value "$line" 2)
+    case $field in
+        duration)
+            duration=$(format_time "$value")
+            ;;
+        position)
+            position=$(format_time "$value")
+            ;;
+        tag)
+            tag_value=$(get_value "$line" 3-)
+            case $value in
+                title)
+                    title=$tag_value
+                    ;;
+                album)
+                    album=$tag_value
+                    ;;
+            esac
+            ;;
+    esac
+done <<< "echo $output | tail -n +2"
+
+echo "$status $position/$duration $title ($album)"

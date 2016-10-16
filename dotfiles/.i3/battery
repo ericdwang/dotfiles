@@ -1,0 +1,32 @@
+#!/bin/bash
+
+output=$(acpi | tr -d , | cut -d " " -f 3-)
+
+get_value() {
+    echo "$output" | cut -d " " -f "$1"
+}
+
+status=$(get_value 1)
+
+if [ "$status" == Full ]; then
+    echo -e "100%\n"
+    echo "#00FF00"
+else
+    capacity=$(get_value 2)
+    case $status in
+        Discharging)
+            echo -e "$capacity\n"
+            integer_capacity=${capacity::-1}
+            if [ "$integer_capacity" -le 20 ]; then
+                echo "#FF0000"
+            elif [ "$integer_capacity" -le 50 ]; then
+                echo "#FFFF00"
+            fi
+            ;;
+        Charging)
+            time=$(get_value 3 | cut -d : -f -2)
+            echo -e "$capacity ($time)\n"
+            echo "#00FF00"
+            ;;
+    esac
+fi
