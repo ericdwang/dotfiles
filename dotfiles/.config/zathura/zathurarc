@@ -1,0 +1,12 @@
+# Search while typing
+set incremental-search true
+
+# Increase step size
+set scroll-step 100
+
+# Copy selections to CLIPBOARD clipboard
+set selection-clipboard clipboard
+
+# Custom mappings
+map d scroll half-down
+map u scroll half-up
