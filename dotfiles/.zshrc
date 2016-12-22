@@ -85,6 +85,7 @@ done
 
 # More useful versions of commands
 alias ag="ag -A 2 -B 2"  # Show lines surrounding matches
+alias bc="bc -l"  # Enable floating point division
 alias du="du -sh"  # Display total directory sizes in a human readable format
 alias ls="ls -v --color=auto --hide='*.pyc'"  # Natural sort, hide filetypes
 alias startx="ssh-agent startx"  # Start/stop ssh-agent along with X
