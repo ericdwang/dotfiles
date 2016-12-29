@@ -43,6 +43,9 @@ Plug 'othree/html5.vim', {'for': 'html'}  " HTML5 syntax highlighting
 
 call plug#end()
 
+" Extended % matching for HTML tags, if/else statements, etc.
+runtime macros/matchit.vim
+
 " Group for all autocmd commands
 augroup rc
   autocmd!
