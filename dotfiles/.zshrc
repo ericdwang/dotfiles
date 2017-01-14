@@ -50,8 +50,8 @@ bindkey -M vicmd "u" undo  # Multi-level undo
 bindkey "^a" beginning-of-line
 bindkey "^e" end-of-line
 bindkey "^k" kill-line
-bindkey "^r" history-incremental-pattern-search-backward
-bindkey "^s" history-incremental-pattern-search-forward
+bindkey "^r" history-incremental-search-backward
+bindkey "^s" history-incremental-search-forward
 bindkey "^y" yank
 bindkey "^w" backward-kill-word
 bindkey "^u" backward-kill-line
