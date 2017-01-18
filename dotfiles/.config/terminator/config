@@ -4,6 +4,7 @@
   inactive_color_offset = 0.4
   tab_position = hidden
 [keybindings]
+  broadcast_all =
   close_term = <Alt>w
   go_down = <Alt>j
   go_left = <Alt>h
