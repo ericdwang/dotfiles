@@ -18,3 +18,14 @@ set colored-stats on
 
 # Append character denoting filetype (e.g. "@" for symlinks) to completions
 set visible-stats on
+
+# Keybindings
+control-p: history-search-backward
+control-n: history-search-forward
+tab: menu-complete  # Cycle through completions
+"\e[Z": menu-complete-backward  # Cycle backwards with shift-tab
+
+# Keybindings in vi command mode
+set keymap vi-command
+k: history-search-backward
+j: history-search-forward
