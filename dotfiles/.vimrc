@@ -175,8 +175,8 @@ let g:ctrlp_match_window = 'order:ttb,max:20'  " Show 20 results, top to bottom
 let g:ctrlp_prompt_mappings = {
     \ 'PrtSelectMove("j")': ['<tab>'], 'PrtSelectMove("k")': ['<s-tab>'],
     \ 'PrtExpandDir()': [], 'ToggleFocus()': []}  " Use tab/shift-tab to select
-if executable('ag')  " Use ag if it's installed and don't cache
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+if executable('rg')  " Use ripgrep if it's installed and don't cache
+    let g:ctrlp_user_command = 'rg --files %s --color=never'
     let g:ctrlp_use_caching = 0
 end
 nnoremap <a-b> :CtrlPBuffer<cr>
