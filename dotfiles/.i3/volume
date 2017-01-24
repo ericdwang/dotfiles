@@ -1,0 +1,17 @@
+#!/bin/bash
+
+output=$(amixer get "$BLOCK_INSTANCE" | tail -1)
+
+volume=$(echo "$output" | grep -Eo "[0-9]+%" | tr -d %)
+
+if echo "$output" | grep -q off; then
+    icon=🔇
+elif [ "$volume" -eq 0 ]; then
+    icon=🔈
+elif [ "$volume" -lt 60 ]; then
+    icon=🔉
+else
+    icon=🔊
+fi
+
+echo "$icon $volume%"
