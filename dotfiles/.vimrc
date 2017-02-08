@@ -1,5 +1,5 @@
 " Load plugins with multi-threading
-let g:plug_threads = 25
+let g:plug_threads = 26
 call plug#begin('~/.vim/plugged')
 
 " Display
@@ -23,6 +23,7 @@ Plug 'wellle/targets.vim'  " Seeking for pair text objects and new text objects
 " Surroundings
 Plug 'Valloric/MatchTagAlways'  " Highlight tags when inside
 Plug 'justinmk/vim-matchparenalways'  " Highlight parentheses when inside
+Plug 'luochen1990/rainbow'  " Rainbow parentheses
 Plug 'tpope/vim-surround'  " Text objects for surroundings
 
 " Integration with external programs
@@ -163,6 +164,12 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']  " Only highlight on f/t
 
 " Pasta
 let g:pasta_disabled_filetypes = []  " Enable for all filetypes
+
+" Rainbow
+let g:rainbow_active = 1  " Always start rainbow
+let g:rainbow_conf = {'separately': {'htmldjango': 0}}  " Disable for HTML
+" Fix spell check being enabled in parentheses where it shouldn't
+autocmd rc FileType * syntax cluster rainbow_r0 add=@NoSpell
 
 " Syntastic
 let g:syntastic_python_checkers = ['python', 'flake8']
