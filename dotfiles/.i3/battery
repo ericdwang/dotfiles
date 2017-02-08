@@ -13,9 +13,10 @@ if [ "$status" == Full ]; then
     echo "#00FF00"
 else
     capacity=$(get_value 2)
+    time=$(get_value 3 | cut -d : -f -2)
+    echo -e "$capacity ($time)\n"
     case $status in
         Discharging)
-            echo -e "$capacity\n"
             integer_capacity=${capacity::-1}
             if [ "$integer_capacity" -le 20 ]; then
                 echo "#FF0000"
@@ -24,8 +25,6 @@ else
             fi
             ;;
         Charging)
-            time=$(get_value 3 | cut -d : -f -2)
-            echo -e "$capacity ($time)\n"
             echo "#00FF00"
             ;;
     esac
