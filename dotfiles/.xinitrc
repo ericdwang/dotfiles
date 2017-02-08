@@ -6,4 +6,4 @@ source ~/.xprofile
 xrdb ~/.Xresources
 
 # Launch i3
-exec dbus-launch --exit-with-session i3
+exec i3
