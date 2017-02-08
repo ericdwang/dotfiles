@@ -1,22 +1,10 @@
 [global_config]
   enabled_plugins = ,
-  handle_size = 0
-  inactive_color_offset = 0.4
   tab_position = hidden
 [keybindings]
-  broadcast_all =
-  close_term = <Alt>w
-  go_down = <Alt>j
-  go_left = <Alt>h
-  go_right = <Alt>l
-  go_up = <Alt>k
+  broadcast_all = ""
   hide_window = <Alt>space
-  layout_launcher = <Shift><Alt>l
-  new_tab = <Alt>t
-  next_tab = <Alt>n
-  prev_tab = <Alt>p
-  split_horiz = <Alt>s
-  split_vert = <Alt>v
+  layout_launcher = ""
 [layouts]
   [[default]]
     [[[child0]]]
@@ -25,90 +13,14 @@
       position = 0:20
       size = 1920, 1060
       type = Window
-    [[[child1]]]
-      labels = None, None
-      order = 0
-      parent = child0
-      type = Notebook
-    [[[child10]]]
-      order = 0
-      parent = child9
-      position = 960
-      type = HPaned
-    [[[child13]]]
-      order = 1
-      parent = child9
-      position = 960
-      type = HPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 530
-      type = VPaned
-    [[[child3]]]
-      order = 0
-      parent = child2
-      position = 960
-      type = HPaned
-    [[[child6]]]
-      order = 1
-      parent = child2
-      position = 960
-      type = HPaned
-    [[[child9]]]
-      order = 1
-      parent = child1
-      position = 530
-      type = VPaned
-    [[[terminal11]]]
-      order = 0
-      parent = child10
-      profile = default
-      type = Terminal
-    [[[terminal12]]]
-      order = 1
-      parent = child10
-      profile = default
-      type = Terminal
-    [[[terminal14]]]
-      order = 0
-      parent = child13
-      profile = default
-      type = Terminal
-    [[[terminal15]]]
-      order = 1
-      parent = child13
-      profile = default
-      type = Terminal
-    [[[terminal4]]]
-      order = 0
-      parent = child3
-      profile = default
-      type = Terminal
-    [[[terminal5]]]
-      order = 1
-      parent = child3
-      profile = default
-      type = Terminal
-    [[[terminal7]]]
-      order = 0
-      parent = child6
-      profile = default
-      type = Terminal
-    [[[terminal8]]]
-      order = 1
-      parent = child6
-      profile = default
-      type = Terminal
 [plugins]
 [profiles]
   [[default]]
     background_darkness = 0.75
-    background_image = None
     background_type = transparent
     cursor_blink = False
+    cursor_color = "#aaaaaa"
     font = Ubuntu Mono 10
-    scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

@@ -16,7 +16,7 @@ zplug load
 # Configuration
 eval "$(dircolors ~/.dircolors)"  # Setup dircolors (used in ls)
 export EDITOR=vim  # Default editor
-export TERM=xterm-256color  # Allow 256 color support in terminal programs
+export PATH="$PATH:$HOME/.local/bin"  # Python packages
 PROMPT_EOL_MARK=''  # Don't show character for partial lines
 
 # Entering commands
