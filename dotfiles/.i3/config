@@ -77,13 +77,18 @@ bindsym $m+Shift+r restart
 bindsym $m+Shift+e exit
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
+
+# Cmus controls
+bindsym XF86AudioPrev exec cmus-remote -r
+bindsym XF86AudioPlay exec cmus-remote -u
+bindsym XF86AudioNext exec cmus-remote -n
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # Screenshot controls
 bindsym --release Print exec gnome-screenshot -i
