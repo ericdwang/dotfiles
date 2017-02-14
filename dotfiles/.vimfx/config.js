@@ -5,7 +5,6 @@ const options = {
   'custom.mode.normal.tab_new_private': 'T',
   'focus_next_key': '',
   'focus_previous_key': '',
-  'mode.ignore.exit': '<escape>',
   'mode.normal.element_text_select': 'V',
   'mode.normal.enter_mode_ignore': 'gi',
   'mode.normal.focus_search_bar': '',
