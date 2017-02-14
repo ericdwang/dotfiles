@@ -28,7 +28,7 @@ Plug 'tpope/vim-surround'  " Text objects for surroundings
 
 " Integration with external programs
 Plug 'airblade/vim-gitgutter'  " Git diff in the gutter
-Plug 'scrooloose/syntastic'  " Linting integration
+Plug 'neomake/neomake'  " Asynchronous linting integration
 
 " Other
 Plug 'ajh17/VimCompletesMe'  " Simple tab completion in insert mode
@@ -171,10 +171,14 @@ let g:rainbow_conf = {'separately': {'htmldjango': 0}}  " Disable for HTML
 " Fix spell check being enabled in parentheses where it shouldn't
 autocmd rc FileType * syntax cluster rainbow_r0 add=@NoSpell
 
-" Syntastic
-let g:syntastic_python_checkers = ['python', 'flake8']
-let g:syntastic_sh_checkers = ['sh', 'shellcheck']
-let g:syntastic_vim_checkers = ['vint']
+" Neomake
+autocmd! rc BufWritePost * Neomake  " Lint when files are saved
+let g:neomake_error_sign = {'text': '>>'}
+let g:neomake_warning_sign = {'text': '->'}
+let g:neomake_info_sign = {'text': '--'}
+highlight NeomakeErrorSign ctermfg=red guifg=red
+highlight NeomakeWarningSign ctermfg=yellow guifg=yellow
+highlight NeomakeInfoSign ctermfg=white guifg=white
 
 " CtrlP
 let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}  " Use a faster matcher
