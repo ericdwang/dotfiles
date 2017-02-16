@@ -171,6 +171,10 @@ let g:rainbow_conf = {'separately': {'htmldjango': 0}}  " Disable for HTML
 " Fix spell check being enabled in parentheses where it shouldn't
 autocmd rc FileType * syntax cluster rainbow_r0 add=@NoSpell
 
+" Git Gutter
+let g:gitgutter_eager = 0  " Don't run after refocusing on buffer
+let g:gitgutter_realtime = 0  " Don't run when editor is idle without saving
+
 " Neomake
 autocmd! rc BufWritePost * Neomake  " Lint when files are saved
 let g:neomake_error_sign = {'text': '>>'}
