@@ -17,8 +17,10 @@ focus_follows_mouse no
 # Use Compton for compositing
 exec --no-startup-id compton -b
 
-# Allow terminal to be floating and on all workspaces
-for_window [class="Terminator"] floating enable sticky enable
+# Use scratchpad for drop-down terminal on all workspaces
+for_window [class="URxvt"] sticky enable, move scratchpad, scratchpad show, \
+    resize set 1920 1060, move position 0 20
+bindsym Mod1+space scratchpad show
 
 # Assign programs to specific workspaces when starting them
 assign [class="Firefox"] 1

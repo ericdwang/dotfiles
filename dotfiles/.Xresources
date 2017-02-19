@@ -1,2 +1,39 @@
+! Font rendering
 Xft.dpi: 84
 Xft.hintstyle: hintslight
+
+! Main font and fallback for missing Unicode symbols
+URxvt.font: xft:Ubuntu Mono:size=10, xft:Symbola:size=10
+
+! Use gray for default font color
+URxvt.foreground: rgb:aa/aa/aa
+
+! Disable scrollbars
+URxvt.scrollBar: false
+
+! Enable transparency
+URxvt.depth: 32
+URxvt.background: rgba:0000/0000/0200/c800
+
+! Use CLIPBOARD for selections and ctrl-shift-v for pasting
+URxvt.perl-ext-common: default,selection-to-clipboard,eval
+URxvt.iso14755: False  ! Disable default ctrl-shift hotkey
+URxvt.keysym.Control-Shift-V: eval:paste_clipboard
+
+! Tango color palette
+URxvt.color0: #2e3436
+URxvt.color1: #cc0000
+URxvt.color2: #4e9a06
+URxvt.color3: #c4a000
+URxvt.color4: #3465a4
+URxvt.color5: #75507b
+URxvt.color6: #06989a
+URxvt.color7: #d3d7cf
+URxvt.color8: #555753
+URxvt.color9: #ef2929
+URxvt.color10: #8ae234
+URxvt.color11: #fce94f
+URxvt.color12: #729fcf
+URxvt.color13: #ad7fa8
+URxvt.color14: #34e2e2
+URxvt.color15: #eeeeec
