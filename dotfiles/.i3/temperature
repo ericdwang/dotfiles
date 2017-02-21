@@ -1,6 +1,14 @@
 #!/bin/bash
 
-temperature=$(($(cat "/sys/class/thermal/$BLOCK_INSTANCE/temp") / 1000))
+temperature=0
+total=0
+
+# Calculate the average temperature across all thermal zones
+for temp in /sys/class/thermal/thermal_zone*/temp; do
+    ((temperature += $(cat "$temp")))
+    ((total += 1))
+done
+((temperature /= total * 1000))
 
 echo -e "$temperature°C\n"
 
