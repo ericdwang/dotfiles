@@ -1,5 +1,5 @@
 " Load plugins with multi-threading
-let g:plug_threads = 26
+let g:plug_threads = 25
 call plug#begin('~/.vim/plugged')
 
 " Display
@@ -9,9 +9,9 @@ Plug 'nathanaelkane/vim-indent-guides'  " Indent guides
 Plug 'tomasr/molokai'  " Dark and colorful colorscheme
 
 " Visual aids for builtin features
-Plug 'pgdouyon/vim-evanesco'  " Improved search highlighting
-Plug 'kana/vim-operator-user' | Plug 'haya14busa/vim-operator-flashy'  " Yank
+Plug 'machakann/vim-highlightedyank'  " Yank highlighting
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}  " Undotree
+Plug 'pgdouyon/vim-evanesco'  " Improved search highlighting
 Plug 'unblevable/quick-scope'  " f/t targets
 
 " Editing
@@ -154,10 +154,10 @@ let g:indent_guides_start_level = 2  " Don't show guides for the first indent
 " Oblique
 let g:oblique#incsearch_highlight_all = 1  " Highlight all incremental searches
 
-" Operator-flashy
-map y <Plug>(operator-flashy)
-nmap Y <Plug>(operator-flashy)$
-let g:operator#flashy#flash_time = 1000  " Show highlight for one second
+" Highlightedyank
+map y <Plug>(highlightedyank)
+nmap Y <Plug>(highlightedyank)$
+let g:highlightedyank_highlight_duration = 200  " Show highlight for 200ms
 
 " Quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']  " Only highlight on f/t
