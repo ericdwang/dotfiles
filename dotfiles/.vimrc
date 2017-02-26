@@ -10,7 +10,7 @@ Plug 'tomasr/molokai'  " Dark and colorful colorscheme
 
 " Visual aids for builtin features
 Plug 'machakann/vim-highlightedyank'  " Yank highlighting
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}  " Undotree
+Plug 'mbbill/undotree'  " Visual undo tree
 Plug 'pgdouyon/vim-evanesco'  " Improved search highlighting
 Plug 'unblevable/quick-scope'  " f/t targets
 
@@ -36,11 +36,11 @@ Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'  " Fuzzy finder
 Plug 'vim-utils/vim-husk'  " Emacs keybindings for command-line mode
 
 " Python
-Plug 'hdima/python-syntax', {'for': 'python'}  " Improved syntax highlighting
-Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}  " PEP8 indenting
+Plug 'hdima/python-syntax'  " Improved syntax highlighting
+Plug 'hynek/vim-python-pep8-indent'  " PEP8 indenting
 
 " Other languages
-Plug 'othree/html5.vim', {'for': 'html'}  " HTML5 syntax highlighting
+Plug 'othree/html5.vim'  " HTML5 syntax highlighting
 
 call plug#end()
 
@@ -65,6 +65,7 @@ set colorcolumn=+0  " Draw a vertical line at the value of textwidth
 set laststatus=2  " Always display the statusline
 set noerrorbells visualbell t_vb=  " Disable visual and error bells
 set relativenumber number  " Relative line numbers except for the current line
+set showcmd  " Display current command in bottom right corner
 set spell spelllang=en_us  " Spell checking
 
 " GUI specific configuration
