@@ -70,7 +70,7 @@ set spell spelllang=en_us  " Spell checking
 
 " GUI specific configuration
 set guicursor+=a:blinkon0 guioptions=  " Non-blinking cursor, minimal UI
-set guifont=Ubuntu\ Mono\ 12  " Font
+set guifont=Ubuntu\ Mono\ 14  " Font
 autocmd rc GUIEnter * set t_vb=  " Disable bells (autocmd since GUI resets it)
 
 " Visual line wrapping

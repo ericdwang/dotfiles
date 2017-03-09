@@ -1,5 +1,5 @@
 # Font
-font pango: Ubuntu Mono 9
+font pango: Ubuntu Mono 11
 
 # Start i3bar at the top
 bar {
@@ -32,8 +32,8 @@ set $m Mod4
 
 # Menu commands
 bindsym $m+d exec --no-startup-id i3-dmenu-desktop \
-    --dmenu="dmenu -i -z -fn 'Ubuntu Mono-10'"
-bindsym $m+p exec --no-startup-id passmenu -i -z -fn 'Ubuntu Mono-10'
+    --dmenu="dmenu -i -z -fn 'Ubuntu Mono-12'"
+bindsym $m+p exec --no-startup-id passmenu -i -z -fn 'Ubuntu Mono-12'
 
 # Change focus
 bindsym $m+h focus left
