@@ -12,9 +12,9 @@ done
 
 echo -e "$temperature°C\n"
 
-if [ "$temperature" -lt 60 ]; then
+if [ "$temperature" -lt 30 ]; then
     echo "#00FF00"
-elif [ "$temperature" -lt 75 ]; then
+elif [ "$temperature" -lt 50 ]; then
     echo "#FFFF00"
 else
     echo "#FF0000"

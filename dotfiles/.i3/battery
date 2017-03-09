@@ -18,9 +18,9 @@ else
     case $status in
         Discharging)
             integer_capacity=${capacity::-1}
-            if [ "$integer_capacity" -le 20 ]; then
+            if [ "$integer_capacity" -lt 15 ]; then
                 echo "#FF0000"
-            elif [ "$integer_capacity" -le 50 ]; then
+            elif [ "$integer_capacity" -lt 40 ]; then
                 echo "#FFFF00"
             fi
             ;;

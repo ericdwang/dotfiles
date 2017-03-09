@@ -6,9 +6,9 @@ echo -e "$memory%\n"
 
 integer_memory=$(echo "$memory" | cut -d . -f 1)
 
-if [ "$integer_memory" -lt 50 ]; then
+if [ "$integer_memory" -lt 25 ]; then
     echo "#00FF00"
-elif [ "$integer_memory" -lt 70 ]; then
+elif [ "$integer_memory" -lt 50 ]; then
     echo "#FFFF00"
 else
     echo "#FF0000"
