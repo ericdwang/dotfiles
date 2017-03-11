@@ -38,6 +38,10 @@
 [push]
     ; Only push the current branch if no refspec is specified
     default = simple
+[rebase]
+    ; Automatically set up commits for squashing in the todo list of
+    ; interactive rebases
+    autoSquash = true
 [stash]
     ; Display full diffs instead of summary when running stash show
     showPatch = true
