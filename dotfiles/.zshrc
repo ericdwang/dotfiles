@@ -84,42 +84,38 @@ for m in visual viopp; do
 done
 
 # More useful versions of commands
-alias bc="bc -l"  # Enable floating point division
+alias bc="bc -ql"  # Start quietly and enable floating point division
 alias du="du -sh"  # Display total directory sizes in a human readable format
 alias ls="ls -v --color=auto --hide='*.pyc'"  # Natural sort, hide filetypes
-alias rg="rg -SF -A 2 -B 2"  # Smart case, no regex, show surrounding lines
+alias rg="rg -SFL -A 2 -B 2"  # Smart case, no regex, follow symlinks, context
 alias startx="ssh-agent startx"  # Start/stop ssh-agent along with X
 alias sudo="sudo "  # Allow sudo to work with aliases
 cd() { builtin cd "$@" && ls; }  # Show files after changing directories
 
 # Abbreviated commands
-alias untar="tar -xvf"
+alias py="ptpython"
+alias sc="systemctl"
 o() { xdg-open "$1" > /dev/null 2>&1 &; }  # Open file with the default program
-p() { pass "$@" -c; }  # Copy passwords to clipboard
-compdef p=pass
 sa() { ssh-add ~/.ssh/"$1"; }  # Unlock SSH keys
 
 # Pacaur commands
-alias pi="pacaur -S --noedit"
-alias pu="pacaur -Syu --noedit"
+alias p="pacaur"
+alias pi="pacaur -S"
 alias pr="pacaur -Rs"
-alias pss="pacaur -Ss"
-
-# Python commands
-alias py="ptpython"
-source /usr/bin/virtualenvwrapper.sh  # Virtual environment management
+alias pu="pacaur -Syu"
 
 # Git abbreviated commands
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
+alias gcp="git cherry-pick"
 alias gm="git merge"
 alias go="git checkout"
 alias gp="git pull"
 alias gpu="git push"
 alias gr="git reset"
 alias gs="git status"
-alias gw="git show"
+alias gw="git show --format=medium"
 
 # Customized Git commands
 alias gd="git diff --diff-filter=M --color-words"  # Diff tracked files by word
@@ -127,7 +123,7 @@ alias gl="git log --graph"  # Show log as a graph
 
 # More advanced Git commands
 alias gca="gc --amend --no-edit"  # Amend commit with same message
-alias gdh="gd HEAD^"  # Diff current commit
+alias gdh="gd HEAD^ HEAD"  # Diff current commit
 alias gds="gd --staged"  # Diff staged files
 alias gpuo="gpu -u origin \$(git symbolic-ref --short HEAD)"  # Push new branch
 alias gro="gr --hard @{u}"  # Undo all local changes to current branch
