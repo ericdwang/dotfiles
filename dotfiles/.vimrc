@@ -118,6 +118,11 @@ set directory=~/.vim/swap  " Keep swap files out of current directory
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango  " Django HTML syntax
 autocmd rc FileType css,htmldjango,javascript,json setlocal tabstop=2
 
+" Change cursor shape depending on mode
+let &t_EI = "\e[2 q"  " Normal mode: block
+let &t_SI = "\e[6 q"  " Insert mode: line
+let &t_SR = "\e[4 q"  " Replace mode: underline
+
 " Disable Ex mode
 nnoremap Q <nop>
 

@@ -65,6 +65,20 @@ bindkey -M vicmd "j" history-substring-search-down
 bindkey "^p" history-substring-search-up
 bindkey "^n" history-substring-search-down
 
+# Change cursor shape depending on vi mode
+function zle-line-init zle-keymap-select {
+    case $KEYMAP in
+        vicmd) echo -n "\e[2 q";;  # Normal mode: block
+        main) echo -n "\e[6 q";;  # Insert mode: line
+    esac
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# Use block cursor after commands are entered
+zle-line-finish() { echo -n "\e[2 q"; }
+zle -N zle-line-finish
+
 # Enable text objects for quotes
 autoload -U select-quoted
 zle -N select-quoted

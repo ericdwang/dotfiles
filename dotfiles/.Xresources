@@ -5,6 +5,9 @@ Xft.hintstyle: hintslight
 ! Main font and fallback for missing Unicode symbols
 URxvt.font: xft:Ubuntu Mono:size=12, xft:Symbola:size=12
 
+! Fix cursor shape not changing when TERM isn't xterm
+URxvt.termName: xterm-256color
+
 ! Use gray for default font color
 URxvt.foreground: rgb:aa/aa/aa
 

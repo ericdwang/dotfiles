@@ -1,8 +1,10 @@
 # Vi mode
 set editing-mode vi
 
-# Show editing mode in prompt
+# Change cursor shape depending on vi mode
 set show-mode-in-prompt on
+set vi-cmd-mode-string \1\e[2 q\2
+set vi-ins-mode-string \1\e[6 q\2
 
 # Treat pasted text as a single string (e.g. don't execute text with newlines)
 set enable-bracketed-paste on
