@@ -1,5 +1,5 @@
 " Load plugins with multi-threading
-let g:plug_threads = 25
+let g:plug_threads = 23
 call plug#begin('~/.vim/plugged')
 
 " Display
@@ -32,7 +32,6 @@ Plug 'neomake/neomake'  " Asynchronous linting integration
 
 " Other
 Plug 'ajh17/VimCompletesMe'  " Simple tab completion in insert mode
-Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'  " Fuzzy finder
 Plug 'vim-utils/vim-husk'  " Emacs keybindings for command-line mode
 
 " Python
@@ -97,7 +96,6 @@ set ignorecase smartcase  " Case insensitive if lowercase, sensitive otherwise
 set incsearch  " Search as pattern is entered
 
 " Buffers/files
-set autochdir  " Change working directory to currently open file
 set autoread  " Auto-reload files when they change without prompting
 set hidden  " Allow buffers to be hidden without being saved
 
@@ -122,6 +120,12 @@ autocmd rc FileType css,htmldjango,javascript,json setlocal tabstop=2
 let &t_EI = "\e[2 q"  " Normal mode: block
 let &t_SI = "\e[6 q"  " Insert mode: line
 let &t_SR = "\e[4 q"  " Replace mode: underline
+
+" Open a file in any subdirectory starting with any letters in the filename
+nnoremap <a-o> :edit **/*
+
+" List all buffers and select by number or filename with tab completion
+nnoremap <a-b> :ls<cr>:buffer<space>
 
 " Disable Ex mode
 nnoremap Q <nop>
@@ -189,18 +193,6 @@ let g:neomake_info_sign = {'text': '--'}
 highlight NeomakeErrorSign ctermfg=red guifg=red
 highlight NeomakeWarningSign ctermfg=yellow guifg=yellow
 highlight NeomakeInfoSign ctermfg=white guifg=white
-
-" CtrlP
-let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}  " Use a faster matcher
-let g:ctrlp_match_window = 'order:ttb,max:20'  " Show 20 results, top to bottom
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")': ['<tab>'], 'PrtSelectMove("k")': ['<s-tab>'],
-    \ 'PrtExpandDir()': [], 'ToggleFocus()': []}  " Use tab/shift-tab to select
-if executable('rg')  " Use ripgrep if it's installed and don't cache
-    let g:ctrlp_user_command = 'rg --files %s --color=never'
-    let g:ctrlp_use_caching = 0
-end
-nnoremap <a-b> :CtrlPBuffer<cr>
 
 " Python syntax
 let g:python_highlight_all = 1  " Use all custom highlighting
