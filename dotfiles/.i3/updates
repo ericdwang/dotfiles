@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 pacman=$(checkupdates | wc -l)
 cower=$(cower -u | wc -l)
 
-echo -e "$pacman,$cower\n"
+echo "$pacman,$cower"
+echo "$pacman,$cower"
 
 if [ "$pacman" -gt 0 ] || [ "$cower" -gt 0 ]; then
     echo "#00FF00"

@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 
 temperature=0
 total=0
 
 # Calculate the average temperature across all thermal zones
 for temp in /sys/class/thermal/thermal_zone*/temp; do
-    ((temperature += $(cat "$temp")))
-    ((total += 1))
+    temperature=$((temperature + $(cat "$temp")))
+    total=$((total + 1))
 done
-((temperature /= total * 1000))
+temperature=$((temperature / (total * 1000)))
 
-echo -e "$temperature°C\n"
+echo "$temperature°C"
+echo "$temperature°C"
 
 if [ "$temperature" -lt 30 ]; then
     echo "#00FF00"

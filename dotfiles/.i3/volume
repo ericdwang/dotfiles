@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 output=$(amixer get "$BLOCK_INSTANCE" | tail -1)
 

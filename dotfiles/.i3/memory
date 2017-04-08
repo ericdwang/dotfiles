@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 memory=$(free | grep Mem | awk "{ printf(\"%.1f\", \$3 / \$2 * 100) }")
 
-echo -e "$memory%\n"
+echo "$memory%"
+echo "$memory%"
 
 integer_memory=$(echo "$memory" | cut -d . -f 1)
 

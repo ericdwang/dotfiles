@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ssid=$(iwgetid -r)
 
@@ -6,12 +6,15 @@ if [ "$ssid" ]; then
     interface=$(tail -n 1 /proc/net/wireless | cut -d : -f 1)
     quality=$(iwconfig "$interface" | grep -oE "[0-9]+/[0-9]+" | \
         awk -F / "{ print int(\$1 / \$2 * 100) }")
-    echo -e "$ssid ($quality%)\n"
+    echo "$ssid ($quality%)"
+    echo "$ssid ($quality%)"
     echo "#00FF00"
 elif rfkill list wifi | grep -q yes; then
-    echo -e "OFF\n"
+    echo OFF
+    echo OFF
     echo "#FF0000"
 else
-    echo -e "DOWN\n"
+    echo DOWN
+    echo DOWN
     echo "#FFFF00"
 fi
