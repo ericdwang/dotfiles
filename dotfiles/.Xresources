@@ -5,7 +5,7 @@ Xft.hintstyle: hintslight
 ! Main font and fallback for missing Unicode symbols
 URxvt.font: xft:Ubuntu Mono:size=12, xft:Symbola:size=12
 
-! Fix cursor shape not changing when TERM isn't xterm
+! Fix cursor shape not changing when TERM is not xterm
 URxvt.termName: xterm-256color
 
 ! Use gray for default font color
@@ -19,7 +19,8 @@ URxvt.depth: 32
 URxvt.background: rgba:0000/0000/0200/c800
 
 ! Use CLIPBOARD for selections and ctrl-shift-v for pasting
-URxvt.perl-ext-common: default,selection-to-clipboard,eval
+URxvt.perl-ext:
+URxvt.perl-ext-common: selection-to-clipboard,eval
 URxvt.iso14755: False  ! Disable default ctrl-shift hotkey
 URxvt.keysym.Control-Shift-V: eval:paste_clipboard
 
