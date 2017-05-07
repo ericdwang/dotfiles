@@ -74,8 +74,8 @@ autocmd rc GUIEnter * set t_vb=  " Disable bells (autocmd since GUI resets it)
 
 " Visual line wrapping
 set linebreak  " Wrap long lines by words instead of the last character
-if exists('+breakindent')  " Indent wrapped lines as previous lines (7.4.338+)
-    set breakindent
+if exists('+breakindent')  " Vim 7.4.338+
+    set breakindent  " Indent wrapped lines the same level as the starting line
 endif
 
 " Indentation
@@ -119,7 +119,9 @@ autocmd rc FileType css,htmldjango,javascript,json setlocal tabstop=2
 " Change cursor shape depending on mode
 let &t_EI = "\e[2 q"  " Normal mode: block
 let &t_SI = "\e[6 q"  " Insert mode: line
-let &t_SR = "\e[4 q"  " Replace mode: underline
+if exists('&t_SR')  " Vim 7.4.687+
+    let &t_SR = "\e[4 q"  " Replace mode: underline
+endif
 
 " Open a file in any subdirectory starting with any letters in the filename
 nnoremap <a-o> :edit **/*
