@@ -17,7 +17,7 @@ zplug load
 eval "$(dircolors ~/.dircolors)"  # Setup dircolors (used in ls)
 export EDITOR=vim  # Default editor
 export PATH="$PATH:$HOME/.local/bin"  # Python packages
-PROMPT_EOL_MARK=''  # Don't show character for partial lines
+PROMPT_EOL_MARK=""  # Don't show character for partial lines
 
 # Entering commands
 bindkey -v  # Vi mode
@@ -79,23 +79,22 @@ zle -N zle-keymap-select
 zle-line-finish() { echo -n "\e[2 q"; }
 zle -N zle-line-finish
 
-# Enable text objects for quotes
-autoload -U select-quoted
-zle -N select-quoted
-for m in visual viopp; do
-    for c in {a,i}{\',\",\`}; do
-        bindkey -M "$m" "$c" select-quoted
-    done
-done
+# Enable text objects for quotes and surroundings (zsh 5.0.8+)
+autoload -U is-at-least
+if is-at-least 5.0.8; then
+    autoload -U select-quoted select-bracketed
+    zle -N select-quoted
+    zle -N select-bracketed
 
-# Enable text objects for surroundings
-autoload -U select-bracketed
-zle -N select-bracketed
-for m in visual viopp; do
-    for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-        bindkey -M "$m" "$c" select-bracketed
+    for m in visual viopp; do
+        for c in {a,i}{\',\",\`}; do
+            bindkey -M "$m" "$c" select-quoted
+        done
+        for c in {a,i}${(s..)^:-"()[]{}<>bB"}; do
+            bindkey -M "$m" "$c" select-bracketed
+        done
     done
-done
+fi
 
 # More useful versions of commands
 alias bc="bc -ql"  # Start quietly and enable floating point division
