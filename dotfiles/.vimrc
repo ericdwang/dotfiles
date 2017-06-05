@@ -1,5 +1,5 @@
 " Load plugins with multi-threading
-let g:plug_threads = 23
+let g:plug_threads = 21
 call plug#begin('~/.vim/plugged')
 
 " Display
@@ -32,14 +32,8 @@ Plug 'neomake/neomake'  " Asynchronous linting integration
 
 " Other
 Plug 'ajh17/VimCompletesMe'  " Simple tab completion in insert mode
+Plug 'hdima/python-syntax'  " Improved Python syntax highlighting
 Plug 'vim-utils/vim-husk'  " Emacs keybindings for command-line mode
-
-" Python
-Plug 'hdima/python-syntax'  " Improved syntax highlighting
-Plug 'hynek/vim-python-pep8-indent'  " PEP8 indenting
-
-" Other languages
-Plug 'othree/html5.vim'  " HTML5 syntax highlighting
 
 call plug#end()
 
@@ -115,6 +109,7 @@ set directory=~/.vim/swap  " Keep swap files out of current directory
 " Filetype specific configuration
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango  " Django HTML syntax
 autocmd rc FileType css,htmldjango,javascript,json setlocal tabstop=2
+let g:pyindent_open_paren = shiftwidth()  " Indent one tab after open parens
 
 " Change cursor shape depending on mode
 let &t_EI = "\e[2 q"  " Normal mode: block
@@ -162,9 +157,6 @@ let g:lightline = {'active': {
 let g:indent_guides_enable_on_vim_startup = 1  " Enable on startup
 let g:indent_guides_guide_size = 1  " Use thin guides
 let g:indent_guides_start_level = 2  " Don't show guides for the first indent
-
-" Oblique
-let g:oblique#incsearch_highlight_all = 1  " Highlight all incremental searches
 
 " Highlightedyank
 map y <Plug>(highlightedyank)
