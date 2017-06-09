@@ -94,7 +94,7 @@ set autoread  " Auto-reload files when they change without prompting
 set hidden  " Allow buffers to be hidden without being saved
 
 " Command-line completions
-set wildignore=*.pyc,*.min.*,*.map  " Ignore file patterns in completions
+set wildignore=*/,*.pyc,*.min.*,*.map  " Ignore directories and certain files
 set wildignorecase  " Case insensitive filename completions
 set wildmenu  " Show list of possible completions above command-line
 
