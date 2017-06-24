@@ -107,8 +107,8 @@ set clipboard=unnamedplus  " Use system clipboard for copying and pasting
 set directory=~/.vim/swap  " Keep swap files out of current directory
 
 " Filetype specific configuration
-autocmd BufNewFile,BufRead *.html set filetype=htmldjango  " Django HTML syntax
-autocmd rc FileType css,htmldjango,javascript,json setlocal tabstop=2
+autocmd BufNewFile,BufRead *.html set syntax=htmldjango  " Django HTML syntax
+autocmd rc FileType css,html,htmldjango,javascript,json setlocal tabstop=2
 let g:pyindent_open_paren = shiftwidth()  " Indent one tab after open parens
 
 " Change cursor shape depending on mode
@@ -171,7 +171,8 @@ let g:pasta_disabled_filetypes = []  " Enable for all filetypes
 
 " Rainbow
 let g:rainbow_active = 1  " Always start rainbow
-let g:rainbow_conf = {'separately': {'htmldjango': 0}}  " Disable for HTML
+let g:rainbow_conf = {'separately': {
+    \ 'html': 0, 'htmldjango': 0, 'xml': 0}}  " Disable for some filetypes
 " Fix spell check being enabled in parentheses where it shouldn't
 autocmd rc FileType * syntax cluster rainbow_r0 add=@NoSpell
 
