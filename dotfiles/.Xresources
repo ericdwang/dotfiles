@@ -1,9 +1,8 @@
 ! Font rendering
-Xft.dpi: 84
 Xft.hintstyle: hintslight
 
 ! Main font and fallback for missing Unicode symbols
-URxvt.font: xft:Ubuntu Mono:size=12, xft:Symbola:size=12
+URxvt.font: xft:Monospace:size=10.5, xft:Symbola:size=12
 
 ! Fix cursor shape not changing when TERM is not xterm
 URxvt.termName: xterm-256color
