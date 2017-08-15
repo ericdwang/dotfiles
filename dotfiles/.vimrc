@@ -28,7 +28,7 @@ Plug 'tpope/vim-surround'  " Text objects for surroundings
 
 " Integration with external programs
 Plug 'airblade/vim-gitgutter'  " Git diff in the gutter
-Plug 'neomake/neomake'  " Asynchronous linting integration
+Plug 'w0rp/ale'  " Asynchronous linting integration
 
 " Other
 Plug 'ajh17/VimCompletesMe'  " Simple tab completion in insert mode
@@ -180,14 +180,11 @@ autocmd rc FileType * syntax cluster rainbow_r0 add=@NoSpell
 let g:gitgutter_eager = 0  " Don't run after refocusing on buffer
 let g:gitgutter_realtime = 0  " Don't run when editor is idle without saving
 
-" Neomake
-autocmd! rc BufWritePost * Neomake  " Lint when files are saved
-let g:neomake_error_sign = {'text': '>>'}
-let g:neomake_warning_sign = {'text': '->'}
-let g:neomake_info_sign = {'text': '--'}
-highlight NeomakeErrorSign ctermfg=red guifg=red
-highlight NeomakeWarningSign ctermfg=yellow guifg=yellow
-highlight NeomakeInfoSign ctermfg=white guifg=white
+" ALE
+let g:ale_lint_on_text_changed = 'never'  " Only run when changes are saved
+let g:ale_lint_on_enter = 0  " Don't run after opening files
+nmap [e <Plug>(ale_previous)
+nmap ]e <Plug>(ale_next)
 
 " Python syntax
 let g:python_highlight_all = 1  " Use all custom highlighting
