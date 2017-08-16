@@ -1,10 +1,9 @@
 " Load plugins with multi-threading
-let g:plug_threads = 21
+let g:plug_threads = 20
 call plug#begin('~/.vim/plugged')
 
 " Display
 Plug 'ap/vim-buftabline'  " Show buffers in tabline
-Plug 'itchyny/lightline.vim'  " Improved and lightweight statusline
 Plug 'nathanaelkane/vim-indent-guides'  " Indent guides
 Plug 'tomasr/molokai'  " Dark and colorful colorscheme
 
@@ -55,7 +54,6 @@ highlight SpellLocal cterm=underline ctermfg=blue ctermbg=none
 
 " Display
 set colorcolumn=+0  " Draw a vertical line at the value of textwidth
-set laststatus=2  " Always display the statusline
 set noerrorbells visualbell t_vb=  " Disable visual and error bells
 set relativenumber number  " Relative line numbers except for the current line
 set showcmd  " Display current command in bottom right corner
@@ -65,6 +63,9 @@ set spell spelllang=en_us  " Spell checking
 set guicursor+=a:blinkon0 guioptions=  " Non-blinking cursor, minimal UI
 set guifont=Monospace\ 12  " Font
 autocmd rc GUIEnter * set t_vb=  " Disable bells (autocmd since GUI resets it)
+" Statusline: readonly, full path, modified, filetype, percentage, line+column
+set laststatus=2  " Always display statusline
+set statusline=%r\ %F\ %m\ %=\ %{&ft!=#''?&ft:'no\ ft'}\ \|\ %p%%\ \|\ %l:%c
 
 " Visual line wrapping
 set linebreak  " Wrap long lines by words instead of the last character
@@ -147,11 +148,7 @@ command! DeleteTrailing %s/\s\+$//e  " Delete all trailing whitespace
 " Buftabline
 let g:buftabline_indicators = 1  " Show saved indicator
 let g:buftabline_numbers = 1  " Show buffer numbers
-
-" Lightline
-let g:lightline = {'active': {
-    \ 'left': [['readonly', 'absolutepath', 'modified']],
-    \ 'right': [['lineinfo'], ['percent'], ['filetype']]}}
+let g:buftabline_show = 1  " Only show tabline if there's at least two buffers
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1  " Enable on startup
