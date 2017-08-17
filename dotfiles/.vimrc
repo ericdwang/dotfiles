@@ -44,25 +44,17 @@ augroup rc
   autocmd!
 augroup END
 
-" Colorscheme
+" Display
 colorscheme molokai
-highlight IncSearch ctermfg=118 guifg=#87ff00
 highlight Normal ctermbg=none  " Use terminal background
 highlight Visual ctermbg=238  " Visual selection background
-highlight SpellBad cterm=underline ctermfg=red ctermbg=none
-highlight SpellLocal cterm=underline ctermfg=blue ctermbg=none
-
-" Display
 set colorcolumn=+0  " Draw a vertical line at the value of textwidth
-set noerrorbells visualbell t_vb=  " Disable visual and error bells
 set relativenumber number  " Relative line numbers except for the current line
 set showcmd  " Display current command in bottom right corner
-set spell spelllang=en_us  " Spell checking
 
 " GUI specific configuration
 set guicursor+=a:blinkon0 guioptions=  " Non-blinking cursor, minimal UI
 set guifont=Monospace\ 12  " Font
-autocmd rc GUIEnter * set t_vb=  " Disable bells (autocmd since GUI resets it)
 " Statusline: readonly, full path, modified, filetype, percentage, line+column
 set laststatus=2  " Always display statusline
 set statusline=%r\ %F\ %m\ %=\ %{&ft!=#''?&ft:'no\ ft'}\ \|\ %p%%\ \|\ %l:%c
@@ -89,6 +81,7 @@ autocmd rc FileType * setlocal formatoptions=cqj  " Override filetype plugins
 " Searching
 set ignorecase smartcase  " Case insensitive if lowercase, sensitive otherwise
 set incsearch  " Search as pattern is entered
+highlight IncSearch ctermfg=118 guifg=#87ff00
 
 " Buffers/files
 set autoread  " Auto-reload files when they change without prompting
@@ -102,6 +95,13 @@ set wildmenu  " Show list of possible completions above command-line
 " Insert mode completions
 set completeopt=longest  " Insert common text of matches on first completion
 set completeopt+=menuone  " Display menu, even if only one match
+
+" Spell checking
+set spell spelllang=en_us  " Enable and set language
+highlight SpellBad cterm=underline ctermbg=NONE
+highlight SpellCap cterm=underline ctermbg=NONE
+highlight SpellLocal cterm=underline ctermbg=NONE
+highlight SpellRare cterm=underline ctermbg=NONE
 
 " Other
 set clipboard=unnamedplus  " Use system clipboard for copying and pasting
