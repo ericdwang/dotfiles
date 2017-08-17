@@ -4,7 +4,7 @@ font = Monospace 10.5
 [colors]
 # Gray default font color and black background with transparency
 foreground = #aaaaaa
-background = rgba(0, 0, 0, 0.75)
+background = rgba(0, 0, 0, 0.7)
 
 # Tango color palette
 color0 = #2e3436

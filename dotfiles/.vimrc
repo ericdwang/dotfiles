@@ -46,18 +46,29 @@ augroup END
 
 " Display
 colorscheme molokai
-highlight Normal ctermbg=none  " Use terminal background
 highlight Visual ctermbg=238  " Visual selection background
 set colorcolumn=+0  " Draw a vertical line at the value of textwidth
 set relativenumber number  " Relative line numbers except for the current line
 set showcmd  " Display current command in bottom right corner
 
-" GUI specific configuration
-set guicursor+=a:blinkon0 guioptions=  " Non-blinking cursor, minimal UI
-set guifont=Monospace\ 12  " Font
 " Statusline: readonly, full path, modified, filetype, percentage, line+column
 set laststatus=2  " Always display statusline
 set statusline=%r\ %F\ %m\ %=\ %{&ft!=#''?&ft:'no\ ft'}\ \|\ %p%%\ \|\ %l:%c
+
+" GUI and terminal specific configuration
+if has('gui_running')
+    set guicursor+=a:blinkon0 guioptions=  " Non-blinking cursor, minimal UI
+    set guifont=Monospace\ 12
+else
+    highlight Normal ctermbg=NONE guibg=NONE  " Use terminal background
+
+    " Enable 24-bit true colors for non-xterm TERM values (:h xterm-true-color)
+    if exists('+termguicolors')  " Vim 7.4.1799+
+        set termguicolors
+        let &t_8f = "\e[38;2;%lu;%lu;%lum"
+        let &t_8b = "\e[48;2;%lu;%lu;%lum"
+    endif
+endif
 
 " Visual line wrapping
 set linebreak  " Wrap long lines by words instead of the last character
