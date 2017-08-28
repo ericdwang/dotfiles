@@ -62,6 +62,13 @@ if has('gui_running')
 else
     highlight Normal ctermbg=NONE guibg=NONE  " Use terminal background
 
+    " Change cursor shape depending on mode
+    let &t_EI = "\e[2 q"  " Normal mode: block
+    let &t_SI = "\e[6 q"  " Insert mode: line
+    if exists('&t_SR')  " Vim 7.4.687+
+        let &t_SR = "\e[4 q"  " Replace mode: underline
+    endif
+
     " Enable 24-bit true colors for non-xterm TERM values (:h xterm-true-color)
     if exists('+termguicolors')  " Vim 7.4.1799+
         set termguicolors
@@ -78,7 +85,9 @@ endif
 
 " Indentation
 set autoindent  " Use current indentation for new lines
-set expandtab shiftwidth=0 softtabstop=-1  " Shift, add/delete spaces, not tabs
+set expandtab  " Insert/delete spaces instead of tabs for indents
+set shiftround shiftwidth=0  " Round shifts to multiples of tabstop (sw=0)
+set softtabstop=-1  " Treat shiftwidth spaces (sts<0) as tabs in insert mode
 set tabstop=4  " Number of spaces that a tab counts for
 
 " Formatting
@@ -122,13 +131,6 @@ set directory=~/.vim/swap  " Keep swap files out of current directory
 autocmd BufNewFile,BufRead *.html set syntax=htmldjango  " Django HTML syntax
 autocmd rc FileType css,html,htmldjango,javascript,json setlocal tabstop=2
 let g:pyindent_open_paren = shiftwidth()  " Indent one tab after open parens
-
-" Change cursor shape depending on mode
-let &t_EI = "\e[2 q"  " Normal mode: block
-let &t_SI = "\e[6 q"  " Insert mode: line
-if exists('&t_SR')  " Vim 7.4.687+
-    let &t_SR = "\e[4 q"  " Replace mode: underline
-endif
 
 " Open a file in any subdirectory starting with any letters in the filename
 nnoremap <a-o> :edit **/*
@@ -191,6 +193,7 @@ let g:gitgutter_realtime = 0  " Don't run when editor is idle without saving
 " ALE
 let g:ale_lint_on_text_changed = 'never'  " Only run when changes are saved
 let g:ale_lint_on_enter = 0  " Don't run after opening files
+let g:ale_lint_on_filetype_changed = 0  " Don't run when the filetype changes
 nmap [e <Plug>(ale_previous)
 nmap ]e <Plug>(ale_next)
 
