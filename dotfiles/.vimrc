@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 " Display
 Plug 'ap/vim-buftabline'  " Show buffers in tabline
+Plug 'luochen1990/rainbow'  " Rainbow parentheses
 Plug 'nathanaelkane/vim-indent-guides'  " Indent guides
 Plug 'tomasr/molokai'  " Dark and colorful colorscheme
 
@@ -17,13 +18,12 @@ Plug 'unblevable/quick-scope'  " f/t targets
 Plug 'sickill/vim-pasta'  " Context aware pasting
 Plug 'tpope/vim-abolish'  " More powerful substitute command
 Plug 'tpope/vim-commentary'  " Commenting and uncommenting
-Plug 'wellle/targets.vim'  " Seeking for pair text objects and new text objects
 
-" Surroundings
-Plug 'Valloric/MatchTagAlways'  " Highlight tags when inside
-Plug 'justinmk/vim-matchparenalways'  " Highlight parentheses when inside
-Plug 'luochen1990/rainbow'  " Rainbow parentheses
+" Text objects and motions
+Plug 'jeetsukumaran/vim-indentwise'  " Motions based on indent level
+Plug 'michaeljsmith/vim-indent-object'  " Text objects based on indent level
 Plug 'tpope/vim-surround'  " Text objects for surroundings
+Plug 'wellle/targets.vim'  " Seeking for pair text objects and new text objects
 
 " Integration with external programs
 Plug 'airblade/vim-gitgutter'  " Git diff in the gutter
@@ -31,7 +31,7 @@ Plug 'w0rp/ale'  " Asynchronous linting integration
 
 " Other
 Plug 'ajh17/VimCompletesMe'  " Simple tab completion in insert mode
-Plug 'hdima/python-syntax'  " Improved Python syntax highlighting
+Plug 'vim-python/python-syntax'  " Improved Python syntax highlighting
 Plug 'vim-utils/vim-husk'  " Emacs keybindings for command-line mode
 
 call plug#end()
@@ -48,7 +48,6 @@ augroup END
 colorscheme molokai
 highlight Visual ctermbg=238  " Visual selection background
 set colorcolumn=+0  " Draw a vertical line at the value of textwidth
-set relativenumber number  " Relative line numbers except for the current line
 set showcmd  " Display current command in bottom right corner
 
 " Statusline: readonly, full path, modified, filetype, percentage, line+column
