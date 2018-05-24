@@ -1,5 +1,5 @@
 # Font
-font pango: Monospace 11
+font pango: Monospace 12
 
 # Start i3bar at the top
 bar {
@@ -35,8 +35,8 @@ set $m Mod4
 
 # Menu commands
 bindsym $m+d exec --no-startup-id i3-dmenu-desktop \
-    --dmenu="dmenu -i -z -fn Monospace-11"
-bindsym $m+p exec --no-startup-id passmenu -i -z -fn Monospace-11
+    --dmenu="dmenu -i -z -fn Monospace-12"
+bindsym $m+p exec --no-startup-id passmenu -i -z -fn Monospace-12
 
 # Change focus
 bindsym $m+h focus left
