@@ -1,6 +1,3 @@
-# Search while typing
-set incremental-search true
-
 # Increase step size
 set scroll-step 100
 
