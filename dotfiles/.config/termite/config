@@ -6,6 +6,10 @@ font = Monospace 12
 foreground = #aaaaaa
 background = rgba(0, 0, 0, 0.7)
 
+# More distinguishable cursor with dark foreground for better contrast
+cursor = cyan
+cursor_foreground = black
+
 # Tango color palette
 color0 = #2e3436
 color1 = #cc0000

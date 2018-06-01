@@ -46,6 +46,7 @@ augroup END
 
 " Display
 colorscheme molokai
+highlight Cursor guibg=cyan
 highlight Visual ctermbg=238  " Visual selection background
 set colorcolumn=+0  " Draw a vertical line at the value of textwidth
 set showcmd  " Display current command in bottom right corner
