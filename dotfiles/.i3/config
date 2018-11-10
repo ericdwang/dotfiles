@@ -35,8 +35,8 @@ set $m Mod4
 
 # Menu commands
 bindsym $m+d exec --no-startup-id i3-dmenu-desktop \
-    --dmenu="dmenu -i -z -fn Monospace-12"
-bindsym $m+p exec --no-startup-id passmenu -i -z -fn Monospace-12
+    --dmenu="dmenu -i -fn Monospace-12"
+bindsym $m+p exec --no-startup-id passmenu -i -fn Monospace-12
 
 # Change focus
 bindsym $m+h focus left
