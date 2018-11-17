@@ -12,11 +12,5 @@ xset s noblank
 # Disable speaker beeps
 xset -b
 
-# Disable tap to click
-synclient MaxTapTime=0
-
-# Disable touchpad for one second after typing
-syndaemon -i 1 -tkd
-
 # Set wallpaper
 sh ~/.fehbg
