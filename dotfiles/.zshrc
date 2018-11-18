@@ -17,6 +17,7 @@ zplug load
 eval "$(dircolors ~/.dircolors)"  # Setup dircolors (used in ls)
 export EDITOR=vim  # Default editor
 export PATH="$PATH:$HOME/.local/bin"  # Python packages
+export RIPGREP_CONFIG_PATH=~/.ripgreprc  # ripgrep config
 PROMPT_EOL_MARK=""  # Don't show character for partial lines
 
 # Entering commands
@@ -100,10 +101,10 @@ fi
 alias bc="bc -ql"  # Start quietly and enable floating point division
 alias du="du -sh"  # Display total directory sizes in a human readable format
 alias ls="ls -v --color=auto --hide='*.pyc'"  # Natural sort, hide filetypes
-alias rg="rg -SFL -A 2 -B 2"  # Smart case, no regex, follow symlinks, context
 alias startx="ssh-agent startx"  # Start/stop ssh-agent along with X
 alias sudo="sudo "  # Allow sudo to work with aliases
 cd() { builtin cd "$@" && ls; }  # Show files after changing directories
+rg() { command rg "$@" | less; }  # Pipe output to pager
 
 # Abbreviated commands
 alias py="ptpython"

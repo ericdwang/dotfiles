@@ -1,0 +1,14 @@
+# Show lines before and after matches
+--context=2
+
+# Follow symlinks
+--follow
+
+# Hide long lines
+--max-columns=500
+
+# Show colors, file paths, and line numbers
+--pretty
+
+# Smart case searching
+--smart-case
