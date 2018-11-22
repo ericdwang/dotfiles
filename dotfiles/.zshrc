@@ -111,9 +111,3 @@ alias py="ptpython"
 alias sc="systemctl"
 o() { xdg-open "$1" > /dev/null 2>&1 &; }  # Open file with the default program
 sa() { ssh-add ~/.ssh/"$1"; }  # Unlock SSH keys
-
-# Pacaur commands
-alias p="pacaur"
-alias pi="pacaur -S"
-alias pr="pacaur -Rs"
-alias pu="pacaur -Syu"
