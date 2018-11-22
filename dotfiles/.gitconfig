@@ -33,21 +33,21 @@
     ; Allow clean to run without any flags
     requireForce = false
 [color "diff"]
-    ; Custom diff colors
-    func = cyan bold
-    new = green bold
-    old = red bold
-[color "status"]
-    ; Custom status colors
-    added = green bold
-    changed = red bold
-    untracked = red bold
+    ; Color functions in hunk headers
+    func = cyan
 [diff]
     ; Show surrounding lines around changed lines in diffs
     context = 2
 [fetch]
     ; Delete references to deleted remote branches when fetching
     prune = true
+[pager]
+    ; Don't show branches in a pager
+    branch = false
+    ; Use the diff-highlight script (included with Git in contrib/) to
+    ; highlight what changed between pairs of lines in diffs
+    diff = diff-highlight | less
+    show = diff-highlight | less
 [pull]
     ; Perform a rebase when pulling
     rebase = true
@@ -68,5 +68,4 @@
     showUntrackedFiles = all
 [user]
     ; User information
-    email = gnawrice@gmail.com
     name = Eric Wang
