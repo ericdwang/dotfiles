@@ -117,39 +117,3 @@ alias p="pacaur"
 alias pi="pacaur -S"
 alias pr="pacaur -Rs"
 alias pu="pacaur -Syu"
-
-# Git abbreviated commands
-alias ga="git add"
-alias gb="git branch"
-alias gc="git commit"
-alias gcp="git cherry-pick"
-alias gm="git merge"
-alias go="git checkout"
-alias gp="git pull"
-alias gpu="git push"
-alias gr="git reset"
-alias gs="git status"
-alias gw="git show --format=medium"
-
-# Customized Git commands
-alias gd="git diff --diff-filter=M --color-words"  # Diff tracked files by word
-alias gl="git log --graph"  # Show log as a graph
-
-# More advanced Git commands
-alias gca="gc --amend --no-edit"  # Amend commit with same message
-alias gdh="gd HEAD^ HEAD"  # Diff current commit
-alias gds="gd --staged"  # Diff staged files
-alias gpuo="gpu -u origin \$(git symbolic-ref --short HEAD)"  # Push new branch
-alias gro="gr --hard @{u}"  # Undo all local changes to current branch
-alias gu="gr --soft HEAD^"  # Undo current commit
-gdc() { gd "$1^" "$1"; }  # Diff a certain commit
-gdo() { gb -d "$1" && gpu origin ":$1"; }  # Delete branch locally and remotely
-compdef _git gdo=git-branch
-
-# Git stash commands
-alias ghl="git stash list"
-alias ghs="git stash save -u"  # Stash (including untracked files) with message
-gha() { git stash apply "stash@{$1}"; }
-ghd() { git stash show "stash@{$1}"; }
-ghdrop() { git stash drop "stash@{$1}"; }
-ghp() { git stash pop "stash@{$1}"; }

@@ -5,6 +5,18 @@
     pushNonFFCurrent = false
     resolveConflict = false
     statusHints = false
+[alias]
+    b = branch
+    ca = commit --amend --no-edit
+    co = checkout
+    ds = diff --staged
+    du = diff @{upstream}
+    pu = push --set-upstream origin HEAD
+    rs = reset --soft HEAD^
+    ru = reset --hard @{upstream}
+    sp = stash pop
+    ss = stash save --include-untracked
+    st = status
 [clean]
     ; Allow clean to run without any flags
     requireForce = false
