@@ -17,6 +17,18 @@
     sp = stash pop
     ss = stash save --include-untracked
     st = status
+
+    ; Delete all local branches that no longer have an upstream branch
+    bd = !git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+    ; Shell commands are executed from the root of the repository so
+    ; $GIT_PREFIX is necessary when the current directory is not that (and
+    ; it has to be used in a function for variable expansion)
+    bl = "!f() { tig blame "$GIT_PREFIX$1"; }; f"
+    cc = !git checkout . && git clean -d
+    l = !tig
+    r = !tig refs
+    rl = !git reflog --pretty=raw | tig --pretty=raw
+    sl = !tig stash
 [clean]
     ; Allow clean to run without any flags
     requireForce = false
@@ -36,14 +48,6 @@
 [fetch]
     ; Delete references to deleted remote branches when fetching
     prune = true
-[format]
-    ; Default pretty format. Use committer date to show the last time the
-    ; commit was updated (e.g. by rebasing), but use author name and email to
-    ; show the original author of the commit.
-    pretty = %Cred%h |%C(bold yellow)%d %Creset%s %Cgreen(%cd) %C(bold blue)[%an] %C(white dim)<%ae>
-[log]
-    ; Use short dates for log
-    date = short
 [pull]
     ; Perform a rebase when pulling
     rebase = true

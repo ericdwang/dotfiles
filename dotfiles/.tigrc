@@ -1,0 +1,38 @@
+# Open horizontal splits and use max space for them
+set vertical-split = false
+set split-view-height = 99%
+
+# Smart case searching
+set ignore-case = smart-case
+
+# Wrap long lines
+set wrap-lines = true
+
+# Use relative dates and show commit IDs in the main view
+set main-view = date:relative-compact author:width=15 id \
+    commit-title:yes,graph,refs
+
+# Use diff-highlight for diffs
+set diff-highlight = true
+
+# Scrolling
+bind generic h scroll-left
+bind generic l scroll-right
+bind generic u move-half-page-up
+bind generic d move-half-page-down
+bind generic g move-first-line
+bind main G move-last-line
+bind generic G move-last-line
+
+# Branches
+bind refs D @?git branch --delete %(branch)
+
+# Commits
+bind main C <?git checkout %(commit)
+bind main D !?git rebase --committer-date-is-author-date %(commit)^
+bind main R <?git rebase --interactive %(commit)^
+
+# Stashes
+bind stash A <?git stash apply %(stash)
+bind stash D @?git stash drop %(stash)
+bind stash P <?git stash pop %(stash)
