@@ -1,0 +1,24 @@
+# General settings
+browser firefox  # Browser to use if not opening in pager
+datetime-format "%D %l:%M%P"  # Show full date and time
+prepopulate-query-feeds yes  # Populate query feeds on startup
+reload-threads "`grep -cv ^$ ~/.newsboat/urls`"  # Use a thread for every feed
+
+# Colors
+color listfocus white blue
+color listnormal_unread yellow default bold
+
+# Scrolling
+bind-key k up
+bind-key j down
+bind-key u pageup
+bind-key d pagedown
+bind-key g home
+bind-key G end
+
+# Open in browser keybindings
+bind-key o open-in-browser-and-mark-read articlelist
+bind-key O open-all-unread-in-browser-and-mark-read
+
+# Macro for opening URLs in a video player
+macro ENTER set browser "mpv --no-terminal %u &" ; open-in-browser-and-mark-read ; set browser firefox
