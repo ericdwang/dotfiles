@@ -1,33 +1,51 @@
 #!/bin/sh
 
-output=$(acpi | tr -d , | cut -d " " -f 3-)
+output=$(acpi | tr -d ,)
+
+battery=""
+total_capacity=0
+fully_charged=1
+charging=0
 
 get_value() {
-    echo "$output" | cut -d " " -f "$1"
+    echo "$1" | cut -d " " -f "$2"
 }
 
-status=$(get_value 1)
+parse_battery() {
+    battery_info=$(echo "$1" | cut -d " " -f 3-)
+    status=$(get_value "$battery_info" 1)
+    capacity=$(get_value "$battery_info" 2)
+    time=$(get_value "$battery_info" 3 | cut -d : -f -2)
 
-if [ "$status" = Full ]; then
-    echo 100%
-    echo 100%
+    battery="$battery$capacity"
+    total_capacity=$((total_capacity + ${capacity%?}))
+
+    if [ "$time" ]; then
+        battery="$battery ($time)"
+        fully_charged=0
+    fi
+
+    if [ "$status" = Charging ]; then
+        charging=1
+    fi
+}
+
+parse_battery "$(echo "$output" | head -1)"
+
+second_battery="$(echo "$output" | sed --quiet 2p)"
+if [ "$second_battery" ]; then
+    battery="$battery + "
+    parse_battery "$second_battery"
+    total_capacity=$((total_capacity / 2))
+fi
+
+echo "$battery"
+echo "$battery"
+
+if [ $fully_charged = 1 ] || [ $charging = 1 ]; then
     echo "#00FF00"
-else
-    capacity=$(get_value 2)
-    time=$(get_value 3 | cut -d : -f -2)
-    echo "$capacity ($time)"
-    echo "$capacity ($time)"
-    case $status in
-        Discharging)
-            integer_capacity=${capacity%?}
-            if [ "$integer_capacity" -lt 15 ]; then
-                echo "#FF0000"
-            elif [ "$integer_capacity" -lt 40 ]; then
-                echo "#FFFF00"
-            fi
-            ;;
-        Charging)
-            echo "#00FF00"
-            ;;
-    esac
+elif [ $total_capacity -lt 15 ]; then
+    echo "#FF0000"
+elif [ $total_capacity -lt 40 ]; then
+    echo "#FFFF00"
 fi
