@@ -172,7 +172,7 @@ let g:highlightedyank_highlight_duration = 200  " Show highlight for 200ms
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']  " Only highlight on f/t
 
 " Pasta
-let g:pasta_disabled_filetypes = []  " Enable for all filetypes
+let g:pasta_disabled_filetypes = ['yaml']  " Disable for some filetypes
 
 " Rainbow
 let g:rainbow_active = 1  " Always start rainbow
@@ -180,6 +180,9 @@ let g:rainbow_conf = {'separately': {
     \ 'html': 0, 'htmldjango': 0, 'xml': 0}}  " Disable for some filetypes
 " Fix spell check being enabled in parentheses where it shouldn't
 autocmd rc FileType * syntax cluster rainbow_r0 add=@NoSpell
+
+" Surround
+let g:surround_indent = 0  " Disable auto re-indenting
 
 " Git Gutter
 let g:gitgutter_eager = 0  " Don't run after refocusing on buffer
