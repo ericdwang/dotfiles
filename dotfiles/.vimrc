@@ -132,27 +132,22 @@ autocmd BufNewFile,BufRead *.html set syntax=htmldjango  " Django HTML syntax
 autocmd rc FileType css,html,htmldjango,javascript,json setlocal tabstop=2
 let g:pyindent_open_paren = shiftwidth()  " Indent one tab after open parens
 
-" Open a file in any subdirectory starting with any letters in the filename
-nnoremap <a-o> :edit **/*
-
 " List all buffers and select by number or filename with tab completion
-nnoremap <a-b> :ls<cr>:buffer<space>
+nnoremap gb :ls<cr>:buffer<space>
 
 " Disable Ex mode
 nnoremap Q <nop>
 
 " Split management
-nnoremap <silent> <a-h> <c-w>h<c-w>k
-nnoremap <silent> <a-j> <c-w>j
-nnoremap <silent> <a-k> <c-w>k
-nnoremap <silent> <a-l> <c-w>l<c-w>k
-nnoremap <a-v> :vsplit<CR>
+nnoremap <silent> gh <c-w>h
+nnoremap <silent> gj <c-w>j
+nnoremap <silent> gk <c-w>k
+nnoremap <silent> gl <c-w>l
 
 " Buffer management
-nnoremap <a-n> :bnext<CR>
-nnoremap <a-p> :bprevious<CR>
+nnoremap gn :bnext<CR>
+nnoremap gp :bprevious<CR>
 command! D bprevious | bdelete #  " Delete the buffer without closing the split
-command! Da bufdo bdelete  " Delete all buffers
 
 " Trailing whitespace
 autocmd rc BufEnter * match SpellBad '\s\+$'  " Highlight trailing whitespace
