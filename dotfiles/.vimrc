@@ -9,9 +9,9 @@ Plug 'nathanaelkane/vim-indent-guides'  " Indent guides
 Plug 'tomasr/molokai'  " Dark and colorful colorscheme
 
 " Visual aids for builtin features
+Plug 'junegunn/vim-slash'  " Auto-clear search highlight and visual star search
 Plug 'machakann/vim-highlightedyank'  " Yank highlighting
 Plug 'mbbill/undotree'  " Visual undo tree
-Plug 'pgdouyon/vim-evanesco'  " Improved search highlighting
 Plug 'unblevable/quick-scope'  " f/t targets
 
 " Editing
@@ -26,13 +26,13 @@ Plug 'tpope/vim-surround'  " Text objects for surroundings
 Plug 'wellle/targets.vim'  " Seeking for pair text objects and new text objects
 
 " Integration with external programs
-Plug 'airblade/vim-gitgutter'  " Git diff in the gutter
+Plug 'mhinz/vim-signify'  " VCS diffs in the gutter
 Plug 'w0rp/ale'  " Asynchronous linting integration
 
 " Other
 Plug 'ajh17/VimCompletesMe'  " Simple tab completion in insert mode
-Plug 'vim-python/python-syntax'  " Improved Python syntax highlighting
 Plug 'vim-utils/vim-husk'  " Emacs keybindings for command-line mode
+Plug 'sheerun/vim-polyglot'  " Syntax support for extra languages
 
 call plug#end()
 
@@ -101,7 +101,6 @@ autocmd rc FileType * setlocal formatoptions=cqj  " Override filetype plugins
 " Searching
 set ignorecase smartcase  " Case insensitive if lowercase, sensitive otherwise
 set incsearch  " Search as pattern is entered
-highlight IncSearch ctermfg=118 guifg=#87ff00
 
 " Buffers/files
 set autoread  " Auto-reload files when they change without prompting
@@ -184,9 +183,8 @@ autocmd rc FileType * syntax cluster rainbow_r0 add=@NoSpell
 " Surround
 let g:surround_indent = 0  " Disable auto re-indenting
 
-" Git Gutter
-let g:gitgutter_eager = 0  " Don't run after refocusing on buffer
-let g:gitgutter_realtime = 0  " Don't run when editor is idle without saving
+" Signify
+let g:signify_vcs_list = ['git']  " Only check for Git
 
 " ALE
 let g:ale_lint_on_text_changed = 'never'  " Only run when changes are saved
@@ -195,5 +193,3 @@ let g:ale_lint_on_filetype_changed = 0  " Don't run when the filetype changes
 nmap [e <Plug>(ale_previous)
 nmap ]e <Plug>(ale_next)
 
-" Python syntax
-let g:python_highlight_all = 1  " Use all custom highlighting
