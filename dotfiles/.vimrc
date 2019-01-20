@@ -106,7 +106,6 @@ set autoread  " Auto-reload files when they change without prompting
 set hidden  " Allow buffers to be hidden without being saved
 
 " Command-line completions
-set wildignore=*/,*.pyc,*.min.*,*.map  " Ignore directories and certain files
 set wildignorecase  " Case insensitive filename completions
 set wildmenu  " Show list of possible completions above command-line
 
@@ -124,11 +123,6 @@ highlight SpellRare cterm=underline ctermbg=NONE
 " Other
 set clipboard=unnamedplus  " Use system clipboard for copying and pasting
 set directory=~/.vim/swap  " Keep swap files out of current directory
-
-" Filetype specific configuration
-autocmd BufNewFile,BufRead *.html set syntax=htmldjango  " Django HTML syntax
-autocmd rc FileType css,html,htmldjango,javascript,json setlocal tabstop=2
-let g:pyindent_open_paren = shiftwidth()  " Indent one tab after open parens
 
 " List all buffers and select by number or filename with tab completion
 nnoremap gb :ls<cr>:buffer<space>
