@@ -1,5 +1,5 @@
 " Load plugins with multi-threading
-let g:plug_threads = 20
+let g:plug_threads = 18
 call plug#begin('~/.vim/plugged')
 
 " Display
@@ -15,7 +15,6 @@ Plug 'mbbill/undotree'  " Visual undo tree
 Plug 'unblevable/quick-scope'  " f/t targets
 
 " Editing
-Plug 'sickill/vim-pasta'  " Context aware pasting
 Plug 'tpope/vim-abolish'  " More powerful substitute command
 Plug 'tpope/vim-commentary'  " Commenting and uncommenting
 
@@ -31,7 +30,6 @@ Plug 'w0rp/ale'  " Asynchronous linting integration
 
 " Other
 Plug 'ajh17/VimCompletesMe'  " Simple tab completion in insert mode
-Plug 'vim-utils/vim-husk'  " Emacs keybindings for command-line mode
 Plug 'sheerun/vim-polyglot'  " Syntax support for extra languages
 
 call plug#end()
@@ -169,9 +167,6 @@ let g:highlightedyank_highlight_duration = 200  " Show highlight for 200ms
 
 " Quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']  " Only highlight on f/t
-
-" Pasta
-let g:pasta_disabled_filetypes = ['yaml']  " Disable for some filetypes
 
 " Rainbow
 let g:rainbow_active = 1  " Always start rainbow
