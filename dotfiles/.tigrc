@@ -8,7 +8,9 @@ set ignore-case = smart-case
 # Wrap long lines
 set wrap-lines = true
 
-# Use relative dates and show commit IDs in the main view
+# View settings
+set blame-view = id:yes,color author:width=15 date:relative-compact \
+    line-number:yes,interval=1 text
 set main-view = date:relative-compact author:width=15 id \
     commit-title:yes,graph,refs
 
