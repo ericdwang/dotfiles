@@ -1,5 +1,5 @@
 " Load plugins with multi-threading
-let g:plug_threads = 18
+let g:plug_threads = 19
 call plug#begin('~/.vim/plugged')
 
 " Display
@@ -29,6 +29,7 @@ Plug 'mhinz/vim-signify'  " VCS diffs in the gutter
 Plug 'w0rp/ale'  " Asynchronous linting integration
 
 " Other
+Plug 'Yggdroot/LeaderF'  " Async fuzzy finder
 Plug 'ajh17/VimCompletesMe'  " Simple tab completion in insert mode
 Plug 'sheerun/vim-polyglot'  " Syntax support for extra languages
 
@@ -188,3 +189,8 @@ let g:ale_lint_on_filetype_changed = 0  " Don't run when the filetype changes
 nmap [e <Plug>(ale_previous)
 nmap ]e <Plug>(ale_next)
 
+" LeaderF
+let g:Lf_CommandMap = {'<c-j>': ['<tab>'], '<c-k>': ['<s-tab>']}  " Tab select
+let g:Lf_CursorBlink = 0  " Disable blinking cursor
+let g:Lf_ShortcutF = 'go'
+let g:Lf_UseMemoryCache = 0  " Don't cache so manual refreshing isn't needed
