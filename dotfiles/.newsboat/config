@@ -20,5 +20,8 @@ bind-key G end
 bind-key o open-in-browser-and-mark-read articlelist
 bind-key O open-all-unread-in-browser-and-mark-read
 
+# Disallow deleting all articles
+unbind-key ^D
+
 # Macro for opening URLs in a video player
 macro ENTER set browser "mpv --no-terminal %u &" ; open-in-browser-and-mark-read ; set browser firefox
