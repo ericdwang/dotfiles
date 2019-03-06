@@ -1,17 +1,12 @@
-source ~/.zplug/init.zsh
+source ~/.zgen/zgen.zsh
 
-zplug "zplug/zplug"  # Plugin manager
-zplug "ericdwang/zsh-lightrise"  # Theme
-zplug "zsh-users/zsh-syntax-highlighting"  # Syntax highlighting
-zplug "zsh-users/zsh-history-substring-search"  # Search history based on input
-zplug "tarruda/zsh-autosuggestions"  # Autosuggestions
-
-# Install plugins if there are ones that haven't been installed
-if ! zplug check; then
-    zplug install
+if ! zgen saved; then
+    zgen load "ericdwang/zsh-lightrise"  # Theme
+    zgen load "zdharma/fast-syntax-highlighting"  # Syntax highlighting
+    zgen load "zsh-users/zsh-history-substring-search"  # Search history based on input
+    zgen load "zsh-users/zsh-autosuggestions"  # Autosuggestions
+    zgen save
 fi
-
-zplug load
 
 # Configuration
 eval "$(dircolors ~/.dircolors)"  # Setup dircolors (used in ls)

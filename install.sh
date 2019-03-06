@@ -26,6 +26,6 @@ download() {
     fi
 }
 
-download b4b4r07/zplug ~/.zplug
+download tarjoilija/zgen ~/.zgen
 download junegunn/vim-plug plug.vim ~/.vim/autoload/plug.vim
 download seebi/dircolors-solarized dircolors.ansi-universal ~/.dircolors
