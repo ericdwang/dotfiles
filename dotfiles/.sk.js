@@ -5,7 +5,6 @@ Hints.style('font-family: sans-serif;', 'text');
 settings.hintAlign = 'left';
 
 // Tabs
-settings.showTabIndices = true;  // Add tab indices to tab titles
 settings.tabsThreshold = 0;  // Always use omnibar for choosing tabs
 
 // Input focus
