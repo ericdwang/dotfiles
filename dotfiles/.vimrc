@@ -124,9 +124,6 @@ highlight SpellRare cterm=underline ctermbg=NONE
 set clipboard=unnamedplus  " Use system clipboard for copying and pasting
 set directory=~/.vim/swap  " Keep swap files out of current directory
 
-" List all buffers and select by number or filename with tab completion
-nnoremap gb :ls<cr>:buffer<space>
-
 " Disable Ex mode
 nnoremap Q <nop>
 
@@ -147,7 +144,6 @@ command! DeleteTrailing %s/\s\+$//e  " Delete all trailing whitespace
 
 " Buftabline
 let g:buftabline_indicators = 1  " Show saved indicator
-let g:buftabline_numbers = 1  " Show buffer numbers
 let g:buftabline_show = 1  " Only show tabline if there's at least two buffers
 
 " Indent Guides
@@ -186,5 +182,6 @@ nmap ]e <Plug>(ale_next)
 " LeaderF
 let g:Lf_CommandMap = {'<c-j>': ['<tab>'], '<c-k>': ['<s-tab>']}  " Tab select
 let g:Lf_CursorBlink = 0  " Disable blinking cursor
+let g:Lf_ShortcutB = 'gb'
 let g:Lf_ShortcutF = 'go'
 let g:Lf_UseMemoryCache = 0  " Don't cache so manual refreshing isn't needed
