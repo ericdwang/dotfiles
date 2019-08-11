@@ -75,8 +75,8 @@ bindsym $m+Shift+e exit
 
 # Audio controls
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
 
 # Cmus controls
 bindsym XF86AudioPrev exec cmus-remote -r
