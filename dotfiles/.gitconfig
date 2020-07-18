@@ -35,6 +35,9 @@
 [color "diff"]
     ; Color functions in hunk headers
     func = cyan
+[commit]
+    ; Show diff of staged changes when using editor
+    verbose = true
 [diff]
     ; Show surrounding lines around changed lines in diffs
     context = 2
@@ -58,6 +61,8 @@
     ; Automatically set up commits for squashing in the todo list of
     ; interactive rebases
     autoSquash = true
+    ; Automatically stash and pop uncommitted changes during rebases
+    autoStash = true
 [stash]
     ; Display full diffs instead of summary when running stash show
     showPatch = true
