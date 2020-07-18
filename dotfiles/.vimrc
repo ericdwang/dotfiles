@@ -64,23 +64,17 @@ else
     " Change cursor shape depending on mode
     let &t_EI = "\e[2 q"  " Normal mode: block
     let &t_SI = "\e[6 q"  " Insert mode: line
-    if exists('&t_SR')  " Vim 7.4.687+
-        let &t_SR = "\e[4 q"  " Replace mode: underline
-    endif
+    let &t_SR = "\e[4 q"  " Replace mode: underline (Vim 7.4.687+)
 
     " Enable 24-bit true colors for non-xterm TERM values (:h xterm-true-color)
-    if exists('+termguicolors')  " Vim 7.4.1799+
-        set termguicolors
-        let &t_8f = "\e[38;2;%lu;%lu;%lum"
-        let &t_8b = "\e[48;2;%lu;%lu;%lum"
-    endif
+    set termguicolors  " Vim 7.4.1799+
+    let &t_8f = "\e[38;2;%lu;%lu;%lum"
+    let &t_8b = "\e[48;2;%lu;%lu;%lum"
 endif
 
 " Visual line wrapping
 set linebreak  " Wrap long lines by words instead of the last character
-if exists('+breakindent')  " Vim 7.4.338+
-    set breakindent  " Indent wrapped lines the same level as the starting line
-endif
+set breakindent  " Indent wrapped lines same as starting line (Vim 7.4.338+)
 
 " Indentation
 set autoindent  " Use current indentation for new lines
@@ -100,6 +94,7 @@ autocmd rc FileType * setlocal formatoptions=cqj  " Override filetype plugins
 " Searching
 set ignorecase smartcase  " Case insensitive if lowercase, sensitive otherwise
 set incsearch  " Search as pattern is entered
+set shortmess-=S  " Show search count message (Vim 8.1.1270+)
 
 " Buffers/files
 set autoread  " Auto-reload files when they change without prompting
