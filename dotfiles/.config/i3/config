@@ -14,8 +14,8 @@ new_float none
 # Don't focus on a window by hovering the mouse over it
 focus_follows_mouse no
 
-# Use Compton for compositing
-exec --no-startup-id compton -b
+# Run compositor
+exec --no-startup-id picom -b
 
 # Use scratchpad for drop-down terminal on all workspaces
 for_window [class="Termite"] sticky enable, move scratchpad, scratchpad show, \
