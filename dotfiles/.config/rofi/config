@@ -1,0 +1,5 @@
+rofi.combi-modi: window,drun
+rofi.font: Monospace 16
+rofi.modi: window,drun,combi
+rofi.show-icons: true
+rofi.theme: Arc-Dark
