@@ -4,6 +4,9 @@
 # Follow symlinks
 --follow
 
+# Search hidden files and directories
+--hidden
+
 # Hide long lines
 --max-columns=500
 
