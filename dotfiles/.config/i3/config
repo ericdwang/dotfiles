@@ -88,5 +88,5 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # Screenshot controls
-bindsym --release Print exec gnome-screenshot -i
-bindsym --release Shift+Print exec gnome-screenshot -a -i
+bindsym --release Print exec spectacle --current
+bindsym --release Shift+Print exec spectacle --region
