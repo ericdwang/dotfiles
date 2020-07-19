@@ -60,8 +60,9 @@ bindsym $m+Shift+k move container to workspace next
 # Enter fullscreen mode for the focused container
 bindsym $m+f fullscreen
 
-# Toggle floating mode for the focused window and show borders
-bindsym $m+t floating toggle, border normal
+# Toggle floating mode and borders for the focused window
+bindsym $m+Shift+f floating toggle, [floating] border normal, \
+    [tiling] border none
 
 # Kill focused window
 bindsym $m+Shift+q kill
