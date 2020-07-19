@@ -26,6 +26,7 @@ download() {
     fi
 }
 
-download tarjoilija/zgen ~/.zgen
+download dexpota/kitty-themes themes/Argonaut.conf ~/.config/kitty/theme.conf
 download junegunn/vim-plug plug.vim ~/.vim/autoload/plug.vim
 download seebi/dircolors-solarized dircolors.ansi-universal ~/.dircolors
+download tarjoilija/zgen ~/.zgen

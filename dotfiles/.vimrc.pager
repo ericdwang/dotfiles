@@ -1,0 +1,33 @@
+" vint: -ProhibitSetNoCompatible
+set nocompatible  " nocompatible isn't set automatically for non-vimrc files
+
+" Write to a file and then load in a terminal window, removing newline at end
+command -nargs=1 Pager write! <args> | term ++curwin head --bytes -1 <args>
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-slash'  " Auto-clear search highlight and visual star search
+Plug 'machakann/vim-highlightedyank'  " Yank highlighting
+Plug 'unblevable/quick-scope'  " f/t targets
+call plug#end()
+
+" Display
+set showcmd  " Display current command in bottom right corner
+set laststatus=0  " Hide statusline
+
+" Searching
+set ignorecase smartcase  " Case insensitive if lowercase, sensitive otherwise
+set incsearch  " Search as pattern is entered
+set shortmess-=S  " Show search count message (Vim 8.1.1270+)
+
+" Other
+set clipboard=unnamedplus  " Use system clipboard for copying and pasting
+set noswapfile  " Disable swap files
+
+" Quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']  " Only highlight on f/t
+
+" Highlightedyank
+map y <Plug>(highlightedyank)
+nmap Y <Plug>(highlightedyank)$
+let g:highlightedyank_highlight_duration = 200  " Show highlight for 200ms

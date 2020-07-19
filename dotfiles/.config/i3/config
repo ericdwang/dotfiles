@@ -18,8 +18,10 @@ focus_follows_mouse no
 exec --no-startup-id picom -b
 
 # Use scratchpad for drop-down terminal on all workspaces
-for_window [class="Termite"] sticky enable, move scratchpad, scratchpad show, \
-    resize set 1920 1060, move position 0 20
+bindsym $m+t exec kitty --name dropdown \
+    --session ~/.config/kitty/session.conf --override background_opacity=0.8
+for_window [instance="dropdown"] sticky enable, move scratchpad, \
+    scratchpad show, resize set 1920 1060, move position 0 20
 bindsym Mod1+space scratchpad show
 
 # Use Super key as main modifier
