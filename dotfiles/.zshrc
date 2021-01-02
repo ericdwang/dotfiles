@@ -76,21 +76,18 @@ zle-line-finish() { echo -n "\e[2 q"; }
 zle -N zle-line-finish
 
 # Enable text objects for quotes and surroundings (zsh 5.0.8+)
-autoload -U is-at-least
-if is-at-least 5.0.8; then
-    autoload -U select-quoted select-bracketed
-    zle -N select-quoted
-    zle -N select-bracketed
+autoload -U select-quoted select-bracketed
+zle -N select-quoted
+zle -N select-bracketed
 
-    for m in visual viopp; do
-        for c in {a,i}{\',\",\`}; do
-            bindkey -M "$m" "$c" select-quoted
-        done
-        for c in {a,i}${(s..)^:-"()[]{}<>bB"}; do
-            bindkey -M "$m" "$c" select-bracketed
-        done
+for m in visual viopp; do
+    for c in {a,i}{\',\",\`}; do
+        bindkey -M "$m" "$c" select-quoted
     done
-fi
+    for c in {a,i}${(s..)^:-"()[]{}<>bB"}; do
+        bindkey -M "$m" "$c" select-bracketed
+    done
+done
 
 # More useful versions of commands
 alias bc="bc -ql"  # Start quietly and enable floating point division
