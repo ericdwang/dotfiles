@@ -91,6 +91,7 @@ done
 
 # More useful versions of commands
 alias bc="bc -ql"  # Start quietly and enable floating point division
+alias diff="git diff --no-index"  # Use git diff on files outside repos
 alias du="du -sh"  # Display total directory sizes in a human readable format
 alias ls="ls -v --color=auto --hide='*.pyc'"  # Natural sort, hide filetypes
 alias startx="ssh-agent startx"  # Start/stop ssh-agent along with X
