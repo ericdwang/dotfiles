@@ -8,7 +8,7 @@ interval=1
 
 [updates]
 interval=3600
-label=🔃
+label=📦
 
 [backlight]
 command=echo "$(xbacklight -get | cut -d . -f 1)%"
@@ -25,6 +25,8 @@ label=🌡
 
 [wifi]
 label=📶
+
+[vpn]
 
 [battery]
 label=⚡

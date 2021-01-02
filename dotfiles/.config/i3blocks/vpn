@@ -1,0 +1,14 @@
+#!/bin/sh
+
+vpn=$(nmcli --terse connection show --active | grep tun)
+
+if [ "$vpn" ]; then
+    name=$(echo "$vpn" | cut -d : -f 1)
+    echo "🔐$name"
+    echo "🔐$name"
+    echo "#00FF00"
+else
+    echo 🔓OFF
+    echo 🔓OFF
+    echo "#FF0000"
+fi
