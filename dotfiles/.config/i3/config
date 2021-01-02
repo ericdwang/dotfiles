@@ -19,62 +19,84 @@ focus_on_window_activation urgent
 exec --no-startup-id picom -b
 
 # Use scratchpad for drop-down terminal on all workspaces
-bindsym $m+t exec kitty --name dropdown \
-    --session ~/.config/kitty/session.conf --override background_opacity=0.8
 for_window [instance="dropdown"] sticky enable, move scratchpad, \
     scratchpad show, resize set 1920 1060, move position 0 20
-bindsym Mod1+space scratchpad show
+bindsym Mod1+Space scratchpad show
 
-# Use Super key as main modifier
-set $m Mod4
+# Program-specific
+for_window [class="zoom" title="zoom"] floating enable  # Fix notifications
 
-# Menu commands
-bindsym $m+d exec --no-startup-id rofi -show combi
-bindsym $m+p exec --no-startup-id rofi-pass
+# Normal mode
+set $normal_mode NORMAL
+bindsym Ctrl+Space mode $normal_mode
+mode $normal_mode {
+    # Launch terminal
+    bindsym Shift+t exec kitty --name dropdown --session \
+        ~/.config/kitty/session.conf --override background_opacity=0.8
+    bindsym Mod1+Space mode default, scratchpad show
 
-# Change focus
-bindsym $m+h focus left
-bindsym $m+l focus right
+    # Menu commands
+    bindsym o mode default, exec rofi -show combi
+    bindsym p mode default, exec rofi-pass
+    bindsym v mode default, exec mpv "$(xclip -selection c -o | rofi -dmenu)"
 
-# Move focused window
-bindsym $m+Shift+h move left
-bindsym $m+Shift+l move right
+    # Change focus
+    bindsym h focus left
+    bindsym j focus down
+    bindsym k focus up
+    bindsym l focus right
 
-# Switch to workspace
-bindsym $m+1 workspace 1
-bindsym $m+2 workspace 2
-bindsym $m+3 workspace 3
-bindsym $m+4 workspace 4
+    # Switch to workspace
+    bindsym q workspace 1:q
+    bindsym w workspace 2:w
+    bindsym e workspace 3:e
+    bindsym r workspace 4:r
+    bindsym n workspace next
 
-# Switch to adjacent workspace
-bindsym $m+j workspace prev
-bindsym $m+k workspace next
+    # Enter fullscreen mode for the focused container
+    bindsym f fullscreen
 
-# Move focused container to workspace
-bindsym $m+Shift+1 move container to workspace 1
-bindsym $m+Shift+2 move container to workspace 2
-bindsym $m+Shift+3 move container to workspace 3
-bindsym $m+Shift+4 move container to workspace 4
+    # Toggle floating mode and borders for the focused window
+    bindsym Shift+f floating toggle, [floating] border normal, \
+        [tiling] border none
 
-# Move focused container to adjacent workspace
-bindsym $m+Shift+j move container to workspace prev
-bindsym $m+Shift+k move container to workspace next
+    # Kill focused window
+    bindsym Shift+q kill
 
-# Enter fullscreen mode for the focused container
-bindsym $m+f fullscreen
+    # Restart i3 in-place
+    bindsym Shift+r restart
 
-# Toggle floating mode and borders for the focused window
-bindsym $m+Shift+f floating toggle, [floating] border normal, \
-    [tiling] border none
+    # Change modes
+    bindsym Escape mode default
+    bindsym Return mode default
+    bindsym m mode $move_mode
+}
 
-# Kill focused window
-bindsym $m+Shift+q kill
+# Move mode
+set $move_mode MOVE
+mode $move_mode {
+    # Move focused window
+    bindsym h move left
+    bindsym j move down
+    bindsym k move up
+    bindsym l move right
 
-# Restart i3 in-place
-bindsym $m+Shift+r restart
+    # Move focused workspace to output
+    bindsym Shift+h move workspace to output left
+    bindsym Shift+j move workspace to output down
+    bindsym Shift+k move workspace to output up
+    bindsym Shift+l move workspace to output right
 
-# Exit i3
-bindsym $m+Shift+e exit
+    # Move focused container to workspace
+    bindsym q move container to workspace 1:q, workspace 1:q
+    bindsym w move container to workspace 2:w, workspace 2:w
+    bindsym e move container to workspace 3:e, workspace 3:e
+    bindsym r move container to workspace 4:r, workspace 4:r
+
+    # Change modes
+    bindsym Escape mode default
+    bindsym Return mode $normal_mode
+}
 
 # Audio controls
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
