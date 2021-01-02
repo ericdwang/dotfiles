@@ -11,8 +11,9 @@ bar {
 new_window none
 new_float none
 
-# Don't focus on a window by hovering the mouse over it
+# Don't focus on a window by hovering the mouse over it or when activated
 focus_follows_mouse no
+focus_on_window_activation urgent
 
 # Run compositor
 exec --no-startup-id picom -b
