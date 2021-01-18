@@ -1,6 +1,6 @@
 #!/bin/sh
 
-vpn=$(nmcli --terse connection show --active | grep tun)
+vpn=$(nmcli --terse connection show --active | grep 'tun\|wireguard')
 
 if [ "$vpn" ]; then
     name=$(echo "$vpn" | cut -d : -f 1)
