@@ -21,19 +21,19 @@ exec --no-startup-id picom -b
 # Use scratchpad for drop-down terminal on all workspaces
 for_window [instance="dropdown"] sticky enable, move scratchpad, \
     scratchpad show, resize set 1920 1060, move position 0 20
-bindsym Mod1+Space scratchpad show
+bindsym Mod1+space scratchpad show
 
 # Program-specific
 for_window [class="zoom" title="zoom"] floating enable  # Fix notifications
 
 # Normal mode
 set $normal_mode NORMAL
-bindsym Ctrl+Space mode $normal_mode
+bindsym Ctrl+space mode $normal_mode
 mode $normal_mode {
     # Launch terminal
     bindsym Shift+t exec kitty --name dropdown --session \
         ~/.config/kitty/session.conf --override background_opacity=0.8
-    bindsym Mod1+Space mode default, scratchpad show
+    bindsym Mod1+space mode default, scratchpad show
 
     # Menu commands
     bindsym o mode default, exec rofi -show combi
